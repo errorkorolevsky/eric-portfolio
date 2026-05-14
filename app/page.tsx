@@ -1,7 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+
+const fadeUp = {
+  hidden: {
+    opacity: 0,
+    y: 50,
+  },
+
+  visible: {
+    opacity: 1,
+    y: 0,
+  },
+};
 
 export default function Home() {
 
@@ -12,29 +24,23 @@ export default function Home() {
 
   useEffect(() => {
 
-    const handleMouseMove = (e: MouseEvent) => {
+    const mouseMove = (e: MouseEvent) => {
       setMousePosition({
         x: e.clientX,
         y: e.clientY,
       });
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", mouseMove);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mousemove", mouseMove);
     };
 
   }, []);
 
   return (
     <main className="relative overflow-hidden bg-black text-white">
-
-      {/* LIGHTS */}
-
-      <div className="light-orb one" />
-      <div className="light-orb two" />
-      <div className="light-orb three" />
 
       {/* MOUSE GLOW */}
 
@@ -46,31 +52,39 @@ export default function Home() {
         }}
       />
 
-      {/* HEADER */}
+      {/* BACKGROUND */}
 
-      <header className="fixed top-0 z-50 w-full border-b border-white/5 bg-black/40 backdrop-blur-3xl">
+      <div className="ambient ambient-1"></div>
+      <div className="ambient ambient-2"></div>
+      <div className="ambient ambient-3"></div>
 
-        <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-6">
+      <div className="grid-overlay"></div>
 
-          <div className="text-3xl font-black tracking-tight">
+      {/* NAVBAR */}
+
+      <header className="navbar">
+
+        <div className="navbar-container">
+
+          <div className="logo">
             Эрик.dev
           </div>
 
-          <nav className="hidden items-center gap-14 text-[15px] text-zinc-400 md:flex">
+          <nav className="nav-links">
 
-            <a href="#hero" className="transition hover:text-white">
+            <a href="#hero">
               Главная
             </a>
 
-            <a href="#services" className="transition hover:text-white">
+            <a href="#services">
               Услуги
             </a>
 
-            <a href="#projects" className="transition hover:text-white">
+            <a href="#projects">
               Проекты
             </a>
 
-            <a href="#contact" className="transition hover:text-white">
+            <a href="#contact">
               Контакты
             </a>
 
@@ -84,180 +98,160 @@ export default function Home() {
 
       <section
         id="hero"
-        className="flex min-h-screen items-center justify-center pt-36"
+        className="hero-section"
       >
 
-        <div className="mx-auto flex w-full max-w-7xl flex-col items-center px-6 text-center">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+          transition={{ duration: 0.9 }}
+          className="hero-content"
+        >
 
-          <div className="fade-up">
-
-            <div className="mb-10 inline-flex rounded-full border border-white/10 bg-white/[0.03] px-6 py-3 text-sm uppercase tracking-[0.35em] text-zinc-400 backdrop-blur-xl">
-              AI • WEB • AUTOMATION
-            </div>
-
-            <h1 className="mx-auto max-w-6xl text-6xl font-black leading-[0.9] tracking-[-0.06em] md:text-8xl lg:text-[120px]">
-
-              Эрик —
-              <br />
-              AI Developer
-
-            </h1>
-
-            <p className="mx-auto mt-12 max-w-4xl text-xl leading-10 text-zinc-400 md:text-2xl">
-
-              Создаю AI-сервисы, современные web-приложения,
-              automation systems и digital-продукты нового поколения.
-
-            </p>
-
-            <div className="mt-14 flex flex-wrap justify-center gap-6">
-
-              <a
-                href="#contact"
-                className="rounded-2xl bg-white px-10 py-5 text-lg font-semibold text-black transition hover:scale-105"
-              >
-                Связаться
-              </a>
-
-              <a
-                href="#projects"
-                className="glass rounded-2xl px-10 py-5 text-lg font-semibold transition hover:bg-white/[0.06]"
-              >
-                Портфолио
-              </a>
-
-            </div>
-
+          <div className="hero-label">
+            AI • AUTOMATION • DIGITAL SYSTEMS
           </div>
 
-          {/* SERVICES */}
+          <h1 className="hero-title">
 
-          <div
-            id="services"
-            className="mt-32 grid w-full grid-cols-1 gap-8 md:grid-cols-3"
-          >
-
-            {[
-              {
-                title: "AI Integration",
-                text: "Интеграция OpenAI, AI automation, AI assistants и интеллектуальных workflow-систем.",
-              },
-
-              {
-                title: "Web Development",
-                text: "Современные web-приложения на Next.js, React, TypeScript и premium UI systems.",
-              },
-
-              {
-                title: "Automation",
-                text: "Telegram-боты, CRM automation, AI-инфраструктура и автоматизация бизнес-процессов.",
-              },
-
-            ].map((service, index) => (
-
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 60 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.7,
-                  delay: index * 0.2,
-                }}
-                className="glass hover-card rounded-[32px] p-10 text-center"
-              >
-
-                <h3 className="mb-6 text-4xl font-black tracking-tight">
-                  {service.title}
-                </h3>
-
-                <p className="text-lg leading-9 text-zinc-400">
-                  {service.text}
-                </p>
-
-              </motion.div>
-
-            ))}
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* ABOUT */}
-
-      <section className="border-t border-white/5 py-40">
-
-        <div className="mx-auto max-w-7xl px-6 text-center">
-
-          <div className="mb-8 uppercase tracking-[0.35em] text-zinc-500">
-            ОБО МНЕ
-          </div>
-
-          <h2 className="mx-auto max-w-5xl text-5xl font-black leading-[1] tracking-[-0.05em] md:text-7xl lg:text-[88px]">
-
-            Создаю современные
+            Создаю intelligent
             <br />
-            AI-продукты
+            digital systems
+            <br />
+            для horeca
+            <br />
+            и бизнеса
 
-          </h2>
+          </h1>
 
-          <p className="mx-auto mt-14 max-w-4xl text-xl leading-10 text-zinc-400">
+          <p className="hero-description">
 
             AI automation, Telegram ecosystems,
-            web development, CRM systems и digital infrastructure
-            для современных компаний.
+            AI assistants, CRM systems
+            и premium digital infrastructure
+            нового поколения.
 
           </p>
 
-          <div className="mt-24 grid grid-cols-1 gap-8 md:grid-cols-2">
+          <div className="hero-buttons">
 
-            <div className="glass hover-card rounded-[32px] p-10 text-left">
+            <button className="primary-btn">
+              Обсудить проект
+            </button>
 
-              <div className="mb-6 text-4xl font-black">
-                Кто я
-              </div>
+            <button className="secondary-btn">
+              Смотреть кейсы
+            </button>
 
-              <p className="text-lg leading-9 text-zinc-400">
+          </div>
 
-                Я занимаюсь разработкой AI-сервисов,
-                web-приложений, автоматизацией бизнес-процессов
-                и созданием современных digital-продуктов.
+        </motion.div>
 
+      </section>
+
+      {/* SERVICES */}
+
+      <section
+        id="services"
+        className="section"
+      >
+
+        <div className="section-container">
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            transition={{ duration: 0.8 }}
+            className="section-heading"
+          >
+
+            <div className="section-label">
+              SERVICES
+            </div>
+
+            <h2 className="section-title">
+
+              Premium AI
+              <br />
+              Infrastructure
+
+            </h2>
+
+          </motion.div>
+
+          <div className="services-grid">
+
+            <motion.div
+              whileHover={{
+                y: -10,
+                scale: 1.02,
+              }}
+              className="glass-card"
+            >
+
+              <div className="card-glow"></div>
+
+              <h3>
+                AI Systems
+              </h3>
+
+              <p>
+                Интеллектуальные AI-системы,
+                OpenAI integration,
+                AI assistants
+                и automation workflows.
               </p>
 
-            </div>
+            </motion.div>
 
-            <div className="glass hover-card rounded-[32px] p-10 text-left">
+            <motion.div
+              whileHover={{
+                y: -10,
+                scale: 1.02,
+              }}
+              className="glass-card"
+            >
 
-              <div className="mb-6 text-4xl font-black">
-                Технологии
-              </div>
+              <div className="card-glow"></div>
 
-              <div className="flex flex-wrap gap-4">
+              <h3>
+                Telegram Automation
+              </h3>
 
-                {[
-                  "Next.js",
-                  "React",
-                  "TypeScript",
-                  "Tailwind",
-                  "OpenAI API",
-                  "Node.js",
-                ].map((tech) => (
+              <p>
+                Telegram CRM,
+                horeca automation,
+                AI notifications
+                и бизнес automation systems.
+              </p>
 
-                  <div
-                    key={tech}
-                    className="rounded-xl border border-white/10 bg-white/[0.04] px-5 py-3 text-lg text-zinc-300"
-                  >
-                    {tech}
-                  </div>
+            </motion.div>
 
-                ))}
+            <motion.div
+              whileHover={{
+                y: -10,
+                scale: 1.02,
+              }}
+              className="glass-card"
+            >
 
-              </div>
+              <div className="card-glow"></div>
 
-            </div>
+              <h3>
+                Digital Products
+              </h3>
+
+              <p>
+                Современные SaaS systems,
+                web platforms,
+                dashboards
+                и premium digital experiences.
+              </p>
+
+            </motion.div>
 
           </div>
 
@@ -269,82 +263,151 @@ export default function Home() {
 
       <section
         id="projects"
-        className="border-t border-white/5 py-40"
+        className="section"
       >
 
-        <div className="mx-auto max-w-7xl px-6 text-center">
+        <div className="section-container">
 
-          <div className="mb-8 uppercase tracking-[0.35em] text-zinc-500">
-            ПРОЕКТЫ
-          </div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            transition={{ duration: 0.8 }}
+            className="section-heading"
+          >
 
-          <h2 className="text-5xl font-black tracking-[-0.05em] md:text-7xl lg:text-[88px]">
-            Избранные работы
-          </h2>
+            <div className="section-label">
+              SELECTED WORK
+            </div>
 
-          <div className="mt-24 grid grid-cols-1 gap-10 md:grid-cols-2">
+            <h2 className="section-title">
+              Premium AI Projects
+            </h2>
 
-            {[
-              {
-                title: "AI Assistant",
-                text: "AI-ассистент для автоматизации задач, генерации контента и работы с клиентами.",
-              },
+          </motion.div>
 
-              {
-                title: "Telegram Automation",
-                text: "Telegram automation ecosystem для бизнеса, CRM и AI-интеграций.",
-              },
+          <div className="projects-grid">
 
-            ].map((project, index) => (
+            {/* PROJECT */}
 
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 60 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.7,
-                  delay: index * 0.2,
-                }}
-                className="glass hover-card overflow-hidden rounded-[36px] text-left"
-              >
+            <motion.div
+              whileHover={{
+                y: -12,
+              }}
+              className="project-card"
+            >
 
-                {/* PROJECT PREVIEW */}
+              <div className="project-preview">
 
-                <div className="relative h-[320px] overflow-hidden">
+                <div className="fake-dashboard">
 
-                  <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-black to-zinc-950" />
+                  <div className="dashboard-header"></div>
 
-                  <div className="absolute left-10 top-10 h-20 w-20 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl" />
+                  <div className="dashboard-content">
 
-                  <div className="absolute right-10 top-10 h-12 w-40 rounded-xl border border-white/10 bg-white/[0.04]" />
+                    <div className="dashboard-sidebar"></div>
 
-                  <div className="absolute bottom-10 left-10 h-32 w-[80%] rounded-3xl border border-white/10 bg-white/[0.03]" />
+                    <div className="dashboard-main">
 
-                </div>
+                      <div className="dashboard-chart"></div>
 
-                <div className="p-10">
+                      <div className="dashboard-cards">
 
-                  <h3 className="mb-5 text-5xl font-black tracking-tight">
-                    {project.title}
-                  </h3>
+                        <div></div>
+                        <div></div>
+                        <div></div>
 
-                  <p className="mb-8 text-lg leading-9 text-zinc-400">
-                    {project.text}
-                  </p>
+                      </div>
 
-                  <a
-                    href="#"
-                    className="text-lg font-semibold text-white transition hover:text-zinc-400"
-                  >
-                    Смотреть проект →
-                  </a>
+                    </div>
+
+                  </div>
 
                 </div>
 
-              </motion.div>
+              </div>
 
-            ))}
+              <div className="project-content">
+
+                <h3>
+                  AI Assistant
+                </h3>
+
+                <p>
+                  AI assistant ecosystem
+                  для automation,
+                  клиентов
+                  и digital infrastructure.
+                </p>
+
+                <a href="#">
+                  Смотреть проект →
+                </a>
+
+              </div>
+
+            </motion.div>
+
+            {/* PROJECT */}
+
+            <motion.div
+              whileHover={{
+                y: -12,
+              }}
+              className="project-card"
+            >
+
+              <div className="project-preview">
+
+                <div className="fake-dashboard">
+
+                  <div className="dashboard-header"></div>
+
+                  <div className="dashboard-content">
+
+                    <div className="dashboard-sidebar"></div>
+
+                    <div className="dashboard-main">
+
+                      <div className="dashboard-chart"></div>
+
+                      <div className="dashboard-cards">
+
+                        <div></div>
+                        <div></div>
+                        <div></div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div className="project-content">
+
+                <h3>
+                  Horeca Automation
+                </h3>
+
+                <p>
+                  Telegram CRM + AI automation
+                  для ресторанов,
+                  кофеен
+                  и horeca management systems.
+                </p>
+
+                <a href="#">
+                  Смотреть проект →
+                </a>
+
+              </div>
+
+            </motion.div>
 
           </div>
 
@@ -356,58 +419,58 @@ export default function Home() {
 
       <section
         id="contact"
-        className="border-t border-white/5 py-40"
+        className="contact-section"
       >
 
-        <div className="mx-auto max-w-5xl px-6 text-center">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          transition={{ duration: 0.8 }}
+          className="contact-content"
+        >
 
-          <div className="mb-8 uppercase tracking-[0.35em] text-zinc-500">
-            КОНТАКТЫ
+          <div className="section-label">
+            CONTACT
           </div>
 
-          <h2 className="text-5xl font-black leading-[1] tracking-[-0.05em] md:text-7xl lg:text-[92px]">
+          <h2 className="contact-title">
 
             Давайте создадим
             <br />
-            что-то великое
+            что-то
+            <br />
+            exceptional
 
           </h2>
 
-          <p className="mx-auto mt-14 max-w-3xl text-xl leading-10 text-zinc-400">
+          <p className="contact-description">
 
-            Открыт для сотрудничества, AI-проектов,
-            automation systems и современных digital-решений.
+            Открыт для AI systems,
+            horeca automation,
+            Telegram ecosystems
+            и premium digital products.
 
           </p>
 
-          <div className="mt-16 flex flex-wrap justify-center gap-12 text-2xl font-semibold">
+          <div className="contact-links">
 
-            <a
-              href="https://t.me/ericilyano"
-              target="_blank"
-              className="transition hover:text-zinc-400"
-            >
+            <a href="https://t.me/ericilyano">
               Telegram
             </a>
 
-            <a
-              href="https://github.com/errorkorolevsky"
-              target="_blank"
-              className="transition hover:text-zinc-400"
-            >
+            <a href="https://github.com/errorkorolevsky">
               GitHub
             </a>
 
-            <a
-              href="mailto:artemfi435@gmail.com"
-              className="transition hover:text-zinc-400"
-            >
+            <a href="mailto:artemfi435@gmail.com">
               Email
             </a>
 
           </div>
 
-        </div>
+        </motion.div>
 
       </section>
 

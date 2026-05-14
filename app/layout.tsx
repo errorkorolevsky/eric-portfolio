@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Эрик.dev — AI Developer",
+  title: "Эрик.dev — AI Automation Studio",
+
   description:
-    "AI systems, automation platforms, Telegram ecosystems и современные digital-продукты.",
+    "AI systems, horeca automation, Telegram ecosystems и современные digital-продукты.",
 
   icons: {
     icon: "/favicon.ico",
