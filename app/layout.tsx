@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Эрик.dev — AI Automation Studio",
 
   description:
-    "AI systems, horeca automation, Telegram ecosystems и современные digital-продукты.",
+    "AI systems, automation platforms, Telegram ecosystems и premium SaaS products.",
 
   icons: {
     icon: "/favicon.ico",

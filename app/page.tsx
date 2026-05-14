@@ -110,7 +110,7 @@ export default function Home() {
         >
 
           <div className="hero-label">
-            AI • AUTOMATION • DIGITAL SYSTEMS
+            AI • AUTOMATION • SAAS
           </div>
 
           <h1 className="hero-title">
@@ -119,16 +119,16 @@ export default function Home() {
             <br />
             digital systems
             <br />
-            для horeca
+            для AI automation
             <br />
-            и бизнеса
+            и SaaS products
 
           </h1>
 
           <p className="hero-description">
 
             AI automation, Telegram ecosystems,
-            AI assistants, CRM systems
+            AI assistants, SaaS platforms
             и premium digital infrastructure
             нового поколения.
 
@@ -199,7 +199,7 @@ export default function Home() {
               </h3>
 
               <p>
-                Интеллектуальные AI-системы,
+                Интеллектуальные AI systems,
                 OpenAI integration,
                 AI assistants
                 и automation workflows.
@@ -218,14 +218,14 @@ export default function Home() {
               <div className="card-glow"></div>
 
               <h3>
-                Telegram Automation
+                Automation
               </h3>
 
               <p>
-                Telegram CRM,
-                horeca automation,
-                AI notifications
-                и бизнес automation systems.
+                Telegram automation,
+                AI workflows,
+                CRM systems,
+                notifications и scalable automation.
               </p>
 
             </motion.div>
@@ -241,7 +241,7 @@ export default function Home() {
               <div className="card-glow"></div>
 
               <h3>
-                Digital Products
+                SaaS Products
               </h3>
 
               <p>
@@ -282,16 +282,19 @@ export default function Home() {
             </div>
 
             <h2 className="section-title">
-              Real AI Systems
+              AI SaaS Systems
             </h2>
 
           </motion.div>
 
           <div className="projects-grid">
 
+            {/* PROJECT 1 */}
+
             <motion.div
               whileHover={{
                 y: -12,
+                scale: 1.01,
               }}
               className="project-card"
             >
@@ -348,20 +351,20 @@ export default function Home() {
               <div className="project-content">
 
                 <div className="project-tag">
-                  AI ASSISTANT
+                  AI PLATFORM
                 </div>
 
                 <h3>
-                  AI Assistant Ecosystem
+                  AI SaaS Dashboard
                 </h3>
 
                 <p>
 
-                  Интеллектуальная AI ecosystem
-                  для automation,
-                  Telegram workflows,
-                  генерации контента
-                  и AI infrastructure.
+                  Intelligent SaaS ecosystem
+                  для AI automation,
+                  analytics,
+                  workflow management
+                  и scalable digital infrastructure.
 
                 </p>
 
@@ -373,9 +376,12 @@ export default function Home() {
 
             </motion.div>
 
+            {/* PROJECT 2 */}
+
             <motion.div
               whileHover={{
                 y: -12,
+                scale: 1.01,
               }}
               className="project-card"
             >
@@ -409,20 +415,20 @@ export default function Home() {
               <div className="project-content">
 
                 <div className="project-tag">
-                  HORECA AUTOMATION
+                  AUTOMATION SYSTEM
                 </div>
 
                 <h3>
-                  Telegram CRM System
+                  Telegram AI Platform
                 </h3>
 
                 <p>
 
                   AI automation ecosystem
-                  для ресторанов,
-                  кофеен,
-                  staff management
-                  и horeca CRM systems.
+                  для Telegram workflows,
+                  CRM systems,
+                  notifications
+                  и intelligent automation pipelines.
 
                 </p>
 
@@ -473,7 +479,7 @@ export default function Home() {
           <p className="contact-description">
 
             Открыт для AI systems,
-            horeca automation,
+            automation platforms,
             Telegram ecosystems
             и premium digital products.
 
@@ -481,11 +487,11 @@ export default function Home() {
 
           <div className="contact-links">
 
-            <a href="https://t.me/ericilyano">
+            <a href="https://t.me/ericilyano" target="_blank">
               Telegram
             </a>
 
-            <a href="https://github.com/errorkorolevsky">
+            <a href="https://github.com/errorkorolevsky" target="_blank">
               GitHub
             </a>
 
