@@ -1,12 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const fadeUp = {
   hidden: {
     opacity: 0,
-    y: 50,
+    y: 80,
   },
 
   visible: {
@@ -22,13 +22,32 @@ export default function Home() {
     y: 0,
   });
 
+  const cursorRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
 
     const mouseMove = (e: MouseEvent) => {
+
       setMousePosition({
         x: e.clientX,
         y: e.clientY,
       });
+
+      if (cursorRef.current) {
+
+        cursorRef.current.animate(
+          {
+            left: `${e.clientX}px`,
+            top: `${e.clientY}px`,
+          },
+          {
+            duration: 600,
+            fill: "forwards",
+          }
+        );
+
+      }
+
     };
 
     window.addEventListener("mousemove", mouseMove);
@@ -40,7 +59,14 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="relative overflow-hidden bg-black text-white">
+    <main className="site-wrapper">
+
+      {/* PREMIUM CURSOR */}
+
+      <div
+        ref={cursorRef}
+        className="premium-cursor"
+      />
 
       {/* MOUSE GLOW */}
 
@@ -66,31 +92,22 @@ export default function Home() {
 
         <div className="navbar-container">
 
-          <div className="logo">
+          <motion.div
+            whileHover={{
+              scale: 1.05,
+            }}
+            className="logo"
+          >
             Эрик.dev
-          </div>
+          </motion.div>
 
           <nav className="nav-links">
 
-            <a href="#hero">
-              Главная
-            </a>
-
-            <a href="#services">
-              Услуги
-            </a>
-
-            <a href="#dashboard">
-              Dashboard
-            </a>
-
-            <a href="#projects">
-              Проекты
-            </a>
-
-            <a href="#contact">
-              Контакты
-            </a>
+            <a href="#hero">Главная</a>
+            <a href="#services">Услуги</a>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#projects">Проекты</a>
+            <a href="#contact">Контакты</a>
 
           </nav>
 
@@ -109,13 +126,22 @@ export default function Home() {
           initial="hidden"
           animate="visible"
           variants={fadeUp}
-          transition={{ duration: 0.9 }}
+          transition={{ duration: 1 }}
           className="hero-content"
         >
 
-          <div className="hero-label">
+          <motion.div
+            animate={{
+              y: [0, -10, 0],
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: 6,
+            }}
+            className="hero-label"
+          >
             AI • AUTOMATION • SAAS
-          </div>
+          </motion.div>
 
           <h1 className="hero-title">
 
@@ -140,13 +166,31 @@ export default function Home() {
 
           <div className="hero-buttons">
 
-            <button className="primary-btn">
+            <motion.button
+              whileHover={{
+                scale: 1.05,
+                y: -4,
+              }}
+              whileTap={{
+                scale: 0.96,
+              }}
+              className="primary-btn"
+            >
               Обсудить проект
-            </button>
+            </motion.button>
 
-            <button className="secondary-btn">
+            <motion.button
+              whileHover={{
+                scale: 1.05,
+                y: -4,
+              }}
+              whileTap={{
+                scale: 0.96,
+              }}
+              className="secondary-btn"
+            >
               Смотреть кейсы
-            </button>
+            </motion.button>
 
           </div>
 
@@ -161,7 +205,14 @@ export default function Home() {
         className="section"
       >
 
-        <div className="section-container">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          transition={{ duration: 0.8 }}
+          className="section-container"
+        >
 
           <div className="section-heading">
 
@@ -181,78 +232,51 @@ export default function Home() {
 
           <div className="services-grid">
 
-            <motion.div
-              whileHover={{
-                y: -10,
-                scale: 1.02,
-              }}
-              className="glass-card"
-            >
+            {[
+              {
+                title: "AI Systems",
+                text: "OpenAI integration, AI assistants и intelligent automation systems.",
+              },
 
-              <div className="card-glow"></div>
+              {
+                title: "Automation",
+                text: "CRM systems, Telegram workflows и scalable automation platforms.",
+              },
 
-              <h3>
-                AI Systems
-              </h3>
+              {
+                title: "SaaS Products",
+                text: "Modern dashboards, analytics и premium digital experiences.",
+              },
 
-              <p>
-                OpenAI integration,
-                AI assistants,
-                intelligent workflows
-                и scalable AI systems.
-              </p>
+            ].map((card, index) => (
 
-            </motion.div>
+              <motion.div
+                key={index}
+                whileHover={{
+                  y: -12,
+                  rotateX: 4,
+                  rotateY: 4,
+                }}
+                className="glass-card magnetic"
+              >
 
-            <motion.div
-              whileHover={{
-                y: -10,
-                scale: 1.02,
-              }}
-              className="glass-card"
-            >
+                <div className="card-glow"></div>
 
-              <div className="card-glow"></div>
+                <h3>
+                  {card.title}
+                </h3>
 
-              <h3>
-                Automation
-              </h3>
+                <p>
+                  {card.text}
+                </p>
 
-              <p>
-                Telegram automation,
-                CRM systems,
-                AI workflows
-                и business automation platforms.
-              </p>
+              </motion.div>
 
-            </motion.div>
-
-            <motion.div
-              whileHover={{
-                y: -10,
-                scale: 1.02,
-              }}
-              className="glass-card"
-            >
-
-              <div className="card-glow"></div>
-
-              <h3>
-                SaaS Products
-              </h3>
-
-              <p>
-                Modern SaaS systems,
-                dashboards,
-                analytics
-                и premium digital experiences.
-              </p>
-
-            </motion.div>
+            ))}
 
           </div>
 
-        </div>
+        </motion.div>
 
       </section>
 
@@ -263,7 +287,14 @@ export default function Home() {
         className="section"
       >
 
-        <div className="section-container">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          transition={{ duration: 1 }}
+          className="section-container"
+        >
 
           <div className="section-heading">
 
@@ -284,9 +315,7 @@ export default function Home() {
             className="live-dashboard"
           >
 
-            {/* SIDEBAR */}
-
-            <div className="live-sidebar">
+            <div className="dashboard-sidebar">
 
               <div className="sidebar-logo"></div>
 
@@ -301,134 +330,74 @@ export default function Home() {
 
             </div>
 
-            {/* CONTENT */}
+            <div className="dashboard-content">
 
-            <div className="live-content">
+              <div className="dashboard-top">
 
-              {/* TOP */}
+                <div className="dashboard-search"></div>
 
-              <div className="live-top">
-
-                <div className="live-search"></div>
-
-                <div className="live-profile"></div>
+                <div className="dashboard-user"></div>
 
               </div>
 
-              {/* STATS */}
+              <div className="stats-grid">
 
-              <div className="live-stats">
+                {[
+                  "98%",
+                  "24/7",
+                  "+320%",
+                ].map((stat, index) => (
 
-                <motion.div
-                  animate={{
-                    y: [0, -5, 0],
-                  }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 4,
-                  }}
-                  className="stat-card"
-                >
+                  <motion.div
+                    key={index}
+                    animate={{
+                      y: [0, -10, 0],
+                    }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 4 + index,
+                    }}
+                    className="stat-card"
+                  >
 
-                  <div className="stat-value">
-                    98%
-                  </div>
+                    <div className="stat-number">
+                      {stat}
+                    </div>
 
-                  <div className="stat-label">
-                    AI Accuracy
-                  </div>
+                    <div className="stat-text">
+                      AI Performance
+                    </div>
 
-                </motion.div>
+                  </motion.div>
 
-                <motion.div
-                  animate={{
-                    y: [0, -7, 0],
-                  }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 5,
-                  }}
-                  className="stat-card"
-                >
-
-                  <div className="stat-value">
-                    24/7
-                  </div>
-
-                  <div className="stat-label">
-                    Automation
-                  </div>
-
-                </motion.div>
-
-                <motion.div
-                  animate={{
-                    y: [0, -4, 0],
-                  }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 3,
-                  }}
-                  className="stat-card"
-                >
-
-                  <div className="stat-value">
-                    +320%
-                  </div>
-
-                  <div className="stat-label">
-                    Productivity
-                  </div>
-
-                </motion.div>
+                ))}
 
               </div>
 
-              {/* CHART */}
+              <div className="chart-container">
 
-              <div className="chart-block">
+                <div className="chart-bars">
 
-                <div className="chart-lines">
+                  {[1,2,3,4,5].map((item) => (
 
-                  <motion.div
-                    animate={{
-                      height: [40, 100, 70, 120],
-                    }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 4,
-                    }}
-                  />
+                    <motion.div
+                      key={item}
+                      animate={{
+                        height: [
+                          60,
+                          140,
+                          90,
+                          180,
+                          120,
+                        ],
+                      }}
+                      transition={{
+                        repeat: Infinity,
+                        duration: 5 + item,
+                      }}
+                    />
 
-                  <motion.div
-                    animate={{
-                      height: [90, 60, 130, 80],
-                    }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 5,
-                    }}
-                  />
-
-                  <motion.div
-                    animate={{
-                      height: [60, 120, 80, 150],
-                    }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 6,
-                    }}
-                  />
-
-                  <motion.div
-                    animate={{
-                      height: [100, 70, 140, 90],
-                    }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 5,
-                    }}
-                  />
+                  ))}
 
                 </div>
 
@@ -438,7 +407,7 @@ export default function Home() {
 
           </motion.div>
 
-        </div>
+        </motion.div>
 
       </section>
 
@@ -449,7 +418,14 @@ export default function Home() {
         className="section"
       >
 
-        <div className="section-container">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          transition={{ duration: 1 }}
+          className="section-container"
+        >
 
           <div className="section-heading">
 
@@ -465,69 +441,59 @@ export default function Home() {
 
           <div className="projects-grid">
 
-            <motion.div
-              whileHover={{
-                y: -12,
-              }}
-              className="project-card"
-            >
+            {[1,2].map((project) => (
 
-              <div className="project-preview"></div>
+              <motion.div
+                key={project}
+                whileHover={{
+                  y: -12,
+                }}
+                className="project-card magnetic"
+              >
 
-              <div className="project-content">
+                <div className="project-preview">
 
-                <div className="project-tag">
-                  AI PLATFORM
+                  <motion.div
+                    animate={{
+                      scale: [1, 1.05, 1],
+                    }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 8,
+                    }}
+                    className="preview-glow"
+                  />
+
                 </div>
 
-                <h3>
-                  AI SaaS Dashboard
-                </h3>
+                <div className="project-content">
 
-                <p>
-                  Intelligent AI ecosystem
-                  для analytics,
-                  workflows
-                  и scalable automation systems.
-                </p>
+                  <div className="project-tag">
+                    AI PLATFORM
+                  </div>
 
-              </div>
+                  <h3>
+                    Intelligent Automation
+                  </h3>
 
-            </motion.div>
+                  <p>
 
-            <motion.div
-              whileHover={{
-                y: -12,
-              }}
-              className="project-card"
-            >
+                    Premium AI ecosystem
+                    для analytics,
+                    workflows
+                    и scalable automation systems.
 
-              <div className="project-preview second"></div>
+                  </p>
 
-              <div className="project-content">
-
-                <div className="project-tag">
-                  AUTOMATION SYSTEM
                 </div>
 
-                <h3>
-                  Telegram AI Platform
-                </h3>
+              </motion.div>
 
-                <p>
-                  Telegram automation ecosystem,
-                  AI workflows,
-                  notifications
-                  и intelligent automation pipelines.
-                </p>
-
-              </div>
-
-            </motion.div>
+            ))}
 
           </div>
 
-        </div>
+        </motion.div>
 
       </section>
 
@@ -538,7 +504,14 @@ export default function Home() {
         className="contact-section"
       >
 
-        <div className="contact-content">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          transition={{ duration: 1 }}
+          className="contact-content"
+        >
 
           <div className="section-label">
             CONTACT
@@ -546,9 +519,9 @@ export default function Home() {
 
           <h2 className="contact-title">
 
-            Давайте создадим
+            Let’s build
             <br />
-            что-то
+            something
             <br />
             exceptional
 
@@ -557,19 +530,19 @@ export default function Home() {
           <p className="contact-description">
 
             Open for AI systems,
-            automation platforms,
-            SaaS products
+            SaaS products,
+            automation platforms
             и premium digital experiences.
 
           </p>
 
           <div className="contact-links">
 
-            <a href="https://t.me/ericilyano" target="_blank">
+            <a href="https://t.me/ericilyano">
               Telegram
             </a>
 
-            <a href="https://github.com/errorkorolevsky" target="_blank">
+            <a href="https://github.com/errorkorolevsky">
               GitHub
             </a>
 
@@ -579,7 +552,7 @@ export default function Home() {
 
           </div>
 
-        </div>
+        </motion.div>
 
       </section>
 
