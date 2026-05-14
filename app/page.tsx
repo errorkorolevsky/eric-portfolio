@@ -282,14 +282,12 @@ export default function Home() {
             </div>
 
             <h2 className="section-title">
-              Premium AI Projects
+              Real AI Systems
             </h2>
 
           </motion.div>
 
           <div className="projects-grid">
-
-            {/* PROJECT */}
 
             <motion.div
               whileHover={{
@@ -298,29 +296,48 @@ export default function Home() {
               className="project-card"
             >
 
-              <div className="project-preview">
+              <div className="project-preview advanced-preview">
 
-                <div className="fake-dashboard">
+                <div className="preview-glow"></div>
 
-                  <div className="dashboard-header"></div>
+                <div className="preview-topbar">
 
-                  <div className="dashboard-content">
+                  <div className="preview-dots">
 
-                    <div className="dashboard-sidebar"></div>
+                    <span></span>
+                    <span></span>
+                    <span></span>
 
-                    <div className="dashboard-main">
+                  </div>
 
-                      <div className="dashboard-chart"></div>
+                  <div className="preview-search"></div>
 
-                      <div className="dashboard-cards">
+                </div>
 
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                <div className="dashboard-layout">
 
-                      </div>
+                  <div className="dashboard-sidebar">
+
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+
+                  </div>
+
+                  <div className="dashboard-main">
+
+                    <div className="dashboard-hero-card"></div>
+
+                    <div className="dashboard-stats">
+
+                      <div></div>
+                      <div></div>
+                      <div></div>
 
                     </div>
+
+                    <div className="dashboard-chart-large"></div>
 
                   </div>
 
@@ -330,15 +347,22 @@ export default function Home() {
 
               <div className="project-content">
 
+                <div className="project-tag">
+                  AI ASSISTANT
+                </div>
+
                 <h3>
-                  AI Assistant
+                  AI Assistant Ecosystem
                 </h3>
 
                 <p>
-                  AI assistant ecosystem
+
+                  Интеллектуальная AI ecosystem
                   для automation,
-                  клиентов
-                  и digital infrastructure.
+                  Telegram workflows,
+                  генерации контента
+                  и AI infrastructure.
+
                 </p>
 
                 <a href="#">
@@ -349,8 +373,6 @@ export default function Home() {
 
             </motion.div>
 
-            {/* PROJECT */}
-
             <motion.div
               whileHover={{
                 y: -12,
@@ -358,47 +380,50 @@ export default function Home() {
               className="project-card"
             >
 
-              <div className="project-preview">
+              <div className="project-preview advanced-preview">
 
-                <div className="fake-dashboard">
+                <div className="preview-glow"></div>
 
-                  <div className="dashboard-header"></div>
+                <div className="telegram-ui">
 
-                  <div className="dashboard-content">
+                  <div className="telegram-header"></div>
 
-                    <div className="dashboard-sidebar"></div>
+                  <div className="telegram-chat">
 
-                    <div className="dashboard-main">
-
-                      <div className="dashboard-chart"></div>
-
-                      <div className="dashboard-cards">
-
-                        <div></div>
-                        <div></div>
-                        <div></div>
-
-                      </div>
-
-                    </div>
+                    <div className="message left"></div>
+                    <div className="message right"></div>
+                    <div className="message left short"></div>
+                    <div className="message right"></div>
 
                   </div>
 
+                  <div className="telegram-input"></div>
+
                 </div>
+
+                <div className="floating-stat stat-1"></div>
+                <div className="floating-stat stat-2"></div>
 
               </div>
 
               <div className="project-content">
 
+                <div className="project-tag">
+                  HORECA AUTOMATION
+                </div>
+
                 <h3>
-                  Horeca Automation
+                  Telegram CRM System
                 </h3>
 
                 <p>
-                  Telegram CRM + AI automation
+
+                  AI automation ecosystem
                   для ресторанов,
-                  кофеен
-                  и horeca management systems.
+                  кофеен,
+                  staff management
+                  и horeca CRM systems.
+
                 </p>
 
                 <a href="#">
