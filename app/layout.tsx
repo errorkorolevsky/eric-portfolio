@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Эрик.dev — AI Systems Engineer",
   description:
-    "AI systems, automation infrastructure, SaaS platforms and premium digital products.",
+    "Premium AI systems, automation infrastructure and digital products.",
 };
 
 export default function RootLayout({
@@ -16,11 +16,12 @@ export default function RootLayout({
     <html lang="ru">
       <body>
         <div className="noise" />
+
         <div className="ambient ambient-1" />
         <div className="ambient ambient-2" />
         <div className="ambient ambient-3" />
 
-        <div className="cursor-glow" id="cursor-glow" />
+        <div id="cursor-glow" className="cursor-glow" />
 
         {children}
 

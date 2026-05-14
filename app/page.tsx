@@ -6,7 +6,10 @@ export default function Home() {
 
       <nav className="navbar">
         <div className="container nav-inner">
-          <div className="logo">Эрик.dev</div>
+
+          <div className="logo">
+            Эрик.dev
+          </div>
 
           <div className="nav-links">
             <a href="#hero">Главная</a>
@@ -14,6 +17,7 @@ export default function Home() {
             <a href="#projects">Проекты</a>
             <a href="#contact">Контакты</a>
           </div>
+
         </div>
       </nav>
 
@@ -35,12 +39,13 @@ export default function Home() {
           </h1>
 
           <p className="hero-description">
-            Создаю AI-инфраструктуру, automation systems,
-            SaaS-платформы, intelligent workflows и современные
-            digital-продукты нового поколения.
+            Создаю AI-инфраструктуру, intelligent systems,
+            automation platforms, SaaS-продукты и современные
+            digital ecosystems нового поколения.
           </p>
 
           <div className="hero-buttons">
+
             <a href="#projects" className="primary-btn">
               Смотреть проекты
             </a>
@@ -48,6 +53,7 @@ export default function Home() {
             <a href="#contact" className="secondary-btn">
               Связаться
             </a>
+
           </div>
 
           <div className="grid-3">
@@ -59,7 +65,7 @@ export default function Home() {
 
               <div className="card-text">
                 OpenAI integration, intelligent workflows,
-                AI infrastructure и automation architecture.
+                scalable AI infrastructure и automation architecture.
               </div>
             </div>
 
@@ -70,7 +76,7 @@ export default function Home() {
 
               <div className="card-text">
                 CRM systems, Telegram ecosystems,
-                scalable automations и digital pipelines.
+                automation pipelines и digital infrastructure.
               </div>
             </div>
 
@@ -86,6 +92,7 @@ export default function Home() {
             </div>
 
           </div>
+
         </div>
       </section>
 
@@ -106,7 +113,7 @@ export default function Home() {
 
           <p className="section-description">
             Разрабатываю AI-сервисы, automation systems,
-            intelligent workflows, SaaS-платформы
+            digital infrastructure, intelligent workflows
             и premium digital experiences.
           </p>
 
@@ -119,9 +126,8 @@ export default function Home() {
 
               <div className="card-text">
                 AI Systems Engineer и developer,
-                который строит современные цифровые
-                продукты с фокусом на automation,
-                AI infrastructure и scalable systems.
+                создающий современные цифровые продукты,
+                intelligent automation systems и scalable platforms.
               </div>
             </div>
 
@@ -132,7 +138,7 @@ export default function Home() {
 
               <div className="card-text">
                 Next.js • React • TypeScript • Tailwind •
-                OpenAI API • Node.js • Vercel • Automation
+                OpenAI API • Node.js • Vercel • AI Automation
               </div>
             </div>
 
@@ -151,28 +157,30 @@ export default function Home() {
             </div>
 
             <div className="terminal-line">
-              &gt; Connecting automation workflows...
+              &gt; Connecting automation systems...
             </div>
 
             <div className="terminal-line">
-              &gt; OpenAI systems online
+              &gt; OpenAI ecosystem online
             </div>
 
             <div className="terminal-line">
-              &gt; CRM ecosystem active
+              &gt; AI workflows active
             </div>
 
             <div className="terminal-line">
-              &gt; Telegram integrations connected
+              &gt; Premium digital systems connected
             </div>
 
           </div>
+
         </div>
       </section>
 
       {/* PROJECTS */}
 
       <section className="section" id="projects">
+
         <div className="container">
 
           <div className="section-label">
@@ -187,15 +195,29 @@ export default function Home() {
 
           <p className="section-description">
             Интеллектуальные digital systems,
-            automation architecture и AI-инфраструктура.
+            AI ecosystems и automation infrastructure.
           </p>
 
           <div className="grid-2">
 
+            {/* PROJECT 1 */}
+
             <div className="card">
 
-              <div className="mockup">
-                <div className="mockup-grid" />
+              <div className="dashboard">
+
+                <div className="dashboard-grid" />
+
+                <div className="analytics-bar">
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                </div>
+
               </div>
 
               <div className="card-title">
@@ -204,15 +226,30 @@ export default function Home() {
 
               <div className="card-text">
                 Intelligent AI ecosystem для automation,
-                генерации контента, клиентских процессов
+                генерации контента, AI workflows
                 и digital infrastructure.
               </div>
+
             </div>
+
+            {/* PROJECT 2 */}
 
             <div className="card">
 
-              <div className="mockup">
-                <div className="mockup-grid" />
+              <div className="dashboard">
+
+                <div className="dashboard-grid" />
+
+                <div className="analytics-bar">
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                </div>
+
               </div>
 
               <div className="card-title">
@@ -220,18 +257,22 @@ export default function Home() {
               </div>
 
               <div className="card-text">
-                Telegram CRM + AI automation systems
-                для scalable business infrastructure.
+                AI automation system с CRM ecosystem,
+                Telegram integrations и scalable business infrastructure.
               </div>
+
             </div>
 
           </div>
+
         </div>
+
       </section>
 
       {/* CONTACT */}
 
       <section className="section" id="contact">
+
         <div className="container">
 
           <div className="section-label">
@@ -258,6 +299,7 @@ export default function Home() {
           </div>
 
         </div>
+
       </section>
 
     </main>
