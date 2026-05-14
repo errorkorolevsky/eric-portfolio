@@ -1,647 +1,263 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-
-const fadeUp = {
-  hidden: {
-    opacity: 0,
-    y: 80,
-  },
-
-  visible: {
-    opacity: 1,
-    y: 0,
-  },
-};
-
-const terminalLines = [
-  "Initializing AI systems...",
-  "Connecting automation pipelines...",
-  "Deploying cloud infrastructure...",
-  "Running intelligent workflows...",
-  "AI models synchronized.",
-  "System status: operational.",
-];
-
 export default function Home() {
-
-  const [mousePosition, setMousePosition] = useState({
-    x: 0,
-    y: 0,
-  });
-
-  const cursorRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-
-    const mouseMove = (e: MouseEvent) => {
-
-      setMousePosition({
-        x: e.clientX,
-        y: e.clientY,
-      });
-
-      if (cursorRef.current) {
-
-        cursorRef.current.animate(
-          {
-            left: `${e.clientX}px`,
-            top: `${e.clientY}px`,
-          },
-          {
-            duration: 600,
-            fill: "forwards",
-          }
-        );
-
-      }
-
-    };
-
-    window.addEventListener("mousemove", mouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", mouseMove);
-    };
-
-  }, []);
-
   return (
-    <main className="site-wrapper">
-
-      {/* CURSOR */}
-
-      <div
-        ref={cursorRef}
-        className="premium-cursor"
-      />
-
-      <div
-        className="mouse-glow"
-        style={{
-          left: mousePosition.x,
-          top: mousePosition.y,
-        }}
-      />
-
-      {/* BACKGROUND */}
-
-      <div className="ambient ambient-1"></div>
-      <div className="ambient ambient-2"></div>
-      <div className="ambient ambient-3"></div>
-
-      <div className="grid-overlay"></div>
+    <main className="page">
 
       {/* NAVBAR */}
 
-      <header className="navbar">
+      <nav className="navbar">
+        <div className="container nav-inner">
+          <div className="logo">Эрик.dev</div>
 
-        <div className="navbar-container">
-
-          <motion.div
-            whileHover={{
-              scale: 1.05,
-            }}
-            className="logo"
-          >
-            Эрик.dev
-          </motion.div>
-
-          <nav className="nav-links">
-
+          <div className="nav-links">
             <a href="#hero">Главная</a>
-            <a href="#services">Услуги</a>
-            <a href="#terminal">AI System</a>
-            <a href="#dashboard">Dashboard</a>
+            <a href="#about">Обо мне</a>
             <a href="#projects">Проекты</a>
             <a href="#contact">Контакты</a>
-
-          </nav>
-
+          </div>
         </div>
-
-      </header>
+      </nav>
 
       {/* HERO */}
 
-      <section
-        id="hero"
-        className="hero-section"
-      >
+      <section className="hero section" id="hero">
+        <div className="container">
 
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          transition={{ duration: 1 }}
-          className="hero-content"
-        >
-
-          <motion.div
-            animate={{
-              y: [0, -10, 0],
-            }}
-            transition={{
-              repeat: Infinity,
-              duration: 6,
-            }}
-            className="hero-label"
-          >
-            AI • AUTOMATION • SAAS
-          </motion.div>
+          <div className="hero-label">
+            AI • AUTOMATION • DIGITAL SYSTEMS
+          </div>
 
           <h1 className="hero-title">
-
-            Создаю intelligent
+            AI Systems
             <br />
-            digital systems
+            Automation
             <br />
-            для automation
-            <br />
-            и AI products
-
+            Digital Products
           </h1>
 
           <p className="hero-description">
-
-            AI automation, Telegram ecosystems,
-            SaaS systems, AI assistants
-            и premium digital infrastructure
-            нового поколения.
-
+            Создаю AI-инфраструктуру, automation systems,
+            SaaS-платформы, intelligent workflows и современные
+            digital-продукты нового поколения.
           </p>
 
           <div className="hero-buttons">
+            <a href="#projects" className="primary-btn">
+              Смотреть проекты
+            </a>
 
-            <motion.button
-              whileHover={{
-                scale: 1.05,
-                y: -4,
-              }}
-              whileTap={{
-                scale: 0.96,
-              }}
-              className="primary-btn"
-            >
-              Обсудить проект
-            </motion.button>
-
-            <motion.button
-              whileHover={{
-                scale: 1.05,
-                y: -4,
-              }}
-              whileTap={{
-                scale: 0.96,
-              }}
-              className="secondary-btn"
-            >
-              Смотреть кейсы
-            </motion.button>
-
+            <a href="#contact" className="secondary-btn">
+              Связаться
+            </a>
           </div>
 
-        </motion.div>
+          <div className="grid-3">
 
-      </section>
-
-      {/* SERVICES */}
-
-      <section
-        id="services"
-        className="section"
-      >
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-          transition={{ duration: 0.8 }}
-          className="section-container"
-        >
-
-          <div className="section-heading">
-
-            <div className="section-label">
-              SERVICES
-            </div>
-
-            <h2 className="section-title">
-
-              Premium AI
-              <br />
-              Infrastructure
-
-            </h2>
-
-          </div>
-
-          <div className="services-grid">
-
-            {[
-              {
-                title: "AI Systems",
-                text: "OpenAI integration, AI assistants и intelligent automation systems.",
-              },
-
-              {
-                title: "Automation",
-                text: "CRM systems, Telegram workflows и scalable automation platforms.",
-              },
-
-              {
-                title: "SaaS Products",
-                text: "Modern dashboards, analytics и premium digital experiences.",
-              },
-
-            ].map((card, index) => (
-
-              <motion.div
-                key={index}
-                whileHover={{
-                  y: -12,
-                  rotateX: 4,
-                  rotateY: 4,
-                }}
-                className="glass-card magnetic"
-              >
-
-                <div className="card-glow"></div>
-
-                <h3>
-                  {card.title}
-                </h3>
-
-                <p>
-                  {card.text}
-                </p>
-
-              </motion.div>
-
-            ))}
-
-          </div>
-
-        </motion.div>
-
-      </section>
-
-      {/* TERMINAL */}
-
-      <section
-        id="terminal"
-        className="section"
-      >
-
-        <div className="section-container">
-
-          <div className="section-heading">
-
-            <div className="section-label">
-              LIVE AI SYSTEM
-            </div>
-
-            <h2 className="section-title">
-              AI Terminal
-            </h2>
-
-          </div>
-
-          <motion.div
-            whileHover={{
-              scale: 1.01,
-            }}
-            className="terminal-window"
-          >
-
-            <div className="terminal-topbar">
-
-              <div className="terminal-dots">
-
-                <span></span>
-                <span></span>
-                <span></span>
-
+            <div className="card">
+              <div className="card-title">
+                AI Systems
               </div>
 
-              <div className="terminal-title">
-                ai-system.console
+              <div className="card-text">
+                OpenAI integration, intelligent workflows,
+                AI infrastructure и automation architecture.
+              </div>
+            </div>
+
+            <div className="card">
+              <div className="card-title">
+                Automation
               </div>
 
+              <div className="card-text">
+                CRM systems, Telegram ecosystems,
+                scalable automations и digital pipelines.
+              </div>
             </div>
 
-            <div className="terminal-content">
+            <div className="card">
+              <div className="card-title">
+                Digital Products
+              </div>
 
-              {terminalLines.map((line, index) => (
-
-                <motion.div
-                  key={index}
-                  initial={{
-                    opacity: 0,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                  }}
-                  transition={{
-                    delay: index * 0.4,
-                  }}
-                  className="terminal-line"
-                >
-
-                  <span className="terminal-prefix">
-                    $
-                  </span>
-
-                  {line}
-
-                </motion.div>
-
-              ))}
-
+              <div className="card-text">
+                SaaS platforms, premium interfaces,
+                web applications и AI experiences.
+              </div>
             </div>
 
-          </motion.div>
-
+          </div>
         </div>
-
       </section>
 
-      {/* DASHBOARD */}
+      {/* ABOUT */}
 
-      <section
-        id="dashboard"
-        className="section"
-      >
+      <section className="section" id="about">
+        <div className="container">
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-          transition={{ duration: 1 }}
-          className="section-container"
-        >
+          <div className="section-label">
+            ОБО МНЕ
+          </div>
 
-          <div className="section-heading">
+          <h2 className="section-title">
+            Создаю современные
+            <br />
+            AI-продукты
+          </h2>
 
-            <div className="section-label">
-              LIVE AI SYSTEM
+          <p className="section-description">
+            Разрабатываю AI-сервисы, automation systems,
+            intelligent workflows, SaaS-платформы
+            и premium digital experiences.
+          </p>
+
+          <div className="grid-2">
+
+            <div className="card">
+              <div className="card-title">
+                Кто я
+              </div>
+
+              <div className="card-text">
+                AI Systems Engineer и developer,
+                который строит современные цифровые
+                продукты с фокусом на automation,
+                AI infrastructure и scalable systems.
+              </div>
             </div>
 
-            <h2 className="section-title">
-              Interactive Dashboard
-            </h2>
+            <div className="card">
+              <div className="card-title">
+                Технологии
+              </div>
+
+              <div className="card-text">
+                Next.js • React • TypeScript • Tailwind •
+                OpenAI API • Node.js • Vercel • Automation
+              </div>
+            </div>
 
           </div>
 
-          <motion.div
-            whileHover={{
-              scale: 1.01,
-            }}
-            className="live-dashboard"
-          >
+          <div className="terminal">
 
-            <div className="dashboard-sidebar">
-
-              <div className="sidebar-logo"></div>
-
-              <div className="sidebar-items">
-
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-
-              </div>
-
+            <div className="terminal-top">
+              <div className="dot" />
+              <div className="dot" />
+              <div className="dot" />
             </div>
 
-            <div className="dashboard-content">
-
-              <div className="dashboard-top">
-
-                <div className="dashboard-search"></div>
-
-                <div className="dashboard-user"></div>
-
-              </div>
-
-              <div className="stats-grid">
-
-                {[
-                  "98%",
-                  "24/7",
-                  "+320%",
-                ].map((stat, index) => (
-
-                  <motion.div
-                    key={index}
-                    animate={{
-                      y: [0, -10, 0],
-                    }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 4 + index,
-                    }}
-                    className="stat-card"
-                  >
-
-                    <div className="stat-number">
-                      {stat}
-                    </div>
-
-                    <div className="stat-text">
-                      AI Performance
-                    </div>
-
-                  </motion.div>
-
-                ))}
-
-              </div>
-
-              <div className="chart-container">
-
-                <div className="chart-bars">
-
-                  {[1,2,3,4,5].map((item) => (
-
-                    <motion.div
-                      key={item}
-                      animate={{
-                        height: [
-                          60,
-                          140,
-                          90,
-                          180,
-                          120,
-                        ],
-                      }}
-                      transition={{
-                        repeat: Infinity,
-                        duration: 5 + item,
-                      }}
-                    />
-
-                  ))}
-
-                </div>
-
-              </div>
-
+            <div className="terminal-line">
+              &gt; Initializing AI infrastructure...
             </div>
 
-          </motion.div>
+            <div className="terminal-line">
+              &gt; Connecting automation workflows...
+            </div>
 
-        </motion.div>
+            <div className="terminal-line">
+              &gt; OpenAI systems online
+            </div>
 
+            <div className="terminal-line">
+              &gt; CRM ecosystem active
+            </div>
+
+            <div className="terminal-line">
+              &gt; Telegram integrations connected
+            </div>
+
+          </div>
+        </div>
       </section>
 
       {/* PROJECTS */}
 
-      <section
-        id="projects"
-        className="section"
-      >
+      <section className="section" id="projects">
+        <div className="container">
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-          transition={{ duration: 1 }}
-          className="section-container"
-        >
+          <div className="section-label">
+            PROJECTS
+          </div>
 
-          <div className="section-heading">
+          <h2 className="section-title">
+            Premium AI
+            <br />
+            Projects
+          </h2>
 
-            <div className="section-label">
-              SELECTED WORK
+          <p className="section-description">
+            Интеллектуальные digital systems,
+            automation architecture и AI-инфраструктура.
+          </p>
+
+          <div className="grid-2">
+
+            <div className="card">
+
+              <div className="mockup">
+                <div className="mockup-grid" />
+              </div>
+
+              <div className="card-title">
+                AI Assistant
+              </div>
+
+              <div className="card-text">
+                Intelligent AI ecosystem для automation,
+                генерации контента, клиентских процессов
+                и digital infrastructure.
+              </div>
             </div>
 
-            <h2 className="section-title">
-              AI SaaS Systems
-            </h2>
+            <div className="card">
+
+              <div className="mockup">
+                <div className="mockup-grid" />
+              </div>
+
+              <div className="card-title">
+                Automation CRM
+              </div>
+
+              <div className="card-text">
+                Telegram CRM + AI automation systems
+                для scalable business infrastructure.
+              </div>
+            </div>
 
           </div>
-
-          <div className="projects-grid">
-
-            {[1,2].map((project) => (
-
-              <motion.div
-                key={project}
-                whileHover={{
-                  y: -12,
-                }}
-                className="project-card magnetic"
-              >
-
-                <div className="project-preview">
-
-                  <motion.div
-                    animate={{
-                      scale: [1, 1.05, 1],
-                    }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 8,
-                    }}
-                    className="preview-glow"
-                  />
-
-                </div>
-
-                <div className="project-content">
-
-                  <div className="project-tag">
-                    AI PLATFORM
-                  </div>
-
-                  <h3>
-                    Intelligent Automation
-                  </h3>
-
-                  <p>
-
-                    Premium AI ecosystem
-                    для analytics,
-                    workflows
-                    и scalable automation systems.
-
-                  </p>
-
-                </div>
-
-              </motion.div>
-
-            ))}
-
-          </div>
-
-        </motion.div>
-
+        </div>
       </section>
 
       {/* CONTACT */}
 
-      <section
-        id="contact"
-        className="contact-section"
-      >
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-          transition={{ duration: 1 }}
-          className="contact-content"
-        >
+      <section className="section" id="contact">
+        <div className="container">
 
           <div className="section-label">
             CONTACT
           </div>
 
-          <h2 className="contact-title">
-
+          <h2 className="section-title">
             Let’s build
             <br />
             something
             <br />
             exceptional
-
           </h2>
 
-          <p className="contact-description">
-
-            Open for AI systems,
-            SaaS products,
-            automation platforms
-            и premium digital experiences.
-
+          <p className="section-description">
+            Открыт для AI systems, automation platforms,
+            digital products и современных технологических проектов.
           </p>
 
           <div className="contact-links">
-
-            <a href="https://t.me/ericilyano">
-              Telegram
-            </a>
-
-            <a href="https://github.com/errorkorolevsky">
-              GitHub
-            </a>
-
-            <a href="mailto:artemfi435@gmail.com">
-              Email
-            </a>
-
+            <a href="#">Telegram</a>
+            <a href="#">GitHub</a>
+            <a href="#">Email</a>
           </div>
 
-        </motion.div>
-
+        </div>
       </section>
 
     </main>

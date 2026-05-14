@@ -2,28 +2,41 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Эрик.dev — AI Automation Studio",
-
+  title: "Эрик.dev — AI Systems Engineer",
   description:
-    "AI systems, automation platforms, Telegram ecosystems и premium SaaS products.",
-
-  icons: {
-    icon: "/favicon.ico",
-  },
+    "AI systems, automation infrastructure, SaaS platforms and premium digital products.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="ru">
+      <body>
+        <div className="noise" />
+        <div className="ambient ambient-1" />
+        <div className="ambient ambient-2" />
+        <div className="ambient ambient-3" />
 
-      <body suppressHydrationWarning={true}>
+        <div className="cursor-glow" id="cursor-glow" />
+
         {children}
-      </body>
 
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              const glow = document.getElementById('cursor-glow');
+
+              window.addEventListener('mousemove', (e) => {
+                glow.style.left = e.clientX + 'px';
+                glow.style.top = e.clientY + 'px';
+              });
+            `,
+          }}
+        />
+      </body>
     </html>
   );
 }
