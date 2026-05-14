@@ -7,10 +7,11 @@ export default function Home() {
     <main className="bg-black text-white overflow-x-hidden">
 
       {/* HEADER */}
-      <header className="fixed top-0 left-0 w-full z-50 border-b border-white/10 bg-black/70 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-6">
+      <header className="fixed top-0 left-0 w-full z-50 border-b border-white/10 bg-black/80 backdrop-blur-xl">
+        <div className="max-w-6xl mx-auto px-6">
           <div className="h-24 flex items-center justify-between">
-            <h1 className="text-3xl font-black tracking-tight">
+
+            <h1 className="text-3xl font-black">
               Эрик.dev
             </h1>
 
@@ -31,6 +32,7 @@ export default function Home() {
                 Контакты
               </a>
             </nav>
+
           </div>
         </div>
       </header>
@@ -40,18 +42,20 @@ export default function Home() {
         id="hero"
         className="min-h-screen flex items-center justify-center pt-32"
       >
-        <div className="max-w-7xl mx-auto px-6 w-full">
+        <div className="max-w-6xl mx-auto px-6 w-full">
+
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
             className="text-center"
           >
+
             <div className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm text-zinc-300 mb-8">
               AI • Web • Automation
             </div>
 
-            <h1 className="text-6xl md:text-8xl lg:text-[120px] font-black leading-[0.9] tracking-tight">
+            <h1 className="text-6xl md:text-8xl font-black leading-[0.9] tracking-tight">
               Эрик —
               <br />
               AI Developer
@@ -63,6 +67,7 @@ export default function Home() {
             </p>
 
             <div className="mt-12 flex flex-wrap justify-center gap-5">
+
               <a
                 href="#contact"
                 className="px-8 py-4 rounded-2xl bg-white text-black font-semibold text-lg hover:scale-105 transition"
@@ -76,44 +81,49 @@ export default function Home() {
               >
                 Портфолио
               </a>
+
             </div>
+
           </motion.div>
 
           {/* HERO CARDS */}
-          <div className="grid md:grid-cols-3 gap-8 mt-28">
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm text-center">
-              <h3 className="text-3xl font-bold mb-5">
+          <div className="grid md:grid-cols-3 gap-6 mt-24">
+
+            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 text-center">
+              <h3 className="text-3xl font-bold mb-4">
                 AI Integration
               </h3>
 
-              <p className="text-zinc-400 text-lg leading-relaxed">
+              <p className="text-zinc-400 leading-relaxed">
                 Интеграция OpenAI, AI automation,
                 AI assistants и умных workflow.
               </p>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm text-center">
-              <h3 className="text-3xl font-bold mb-5">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 text-center">
+              <h3 className="text-3xl font-bold mb-4">
                 Web Development
               </h3>
 
-              <p className="text-zinc-400 text-lg leading-relaxed">
+              <p className="text-zinc-400 leading-relaxed">
                 Современные web-приложения
                 на Next.js, React и TypeScript.
               </p>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm text-center">
-              <h3 className="text-3xl font-bold mb-5">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 text-center">
+              <h3 className="text-3xl font-bold mb-4">
                 Automation
               </h3>
 
-              <p className="text-zinc-400 text-lg leading-relaxed">
+              <p className="text-zinc-400 leading-relaxed">
                 Telegram-боты, AI-сервисы
                 и автоматизация бизнес-процессов.
               </p>
             </div>
+
           </div>
+
         </div>
       </section>
 
@@ -122,26 +132,26 @@ export default function Home() {
         id="about"
         className="py-32 border-t border-white/5"
       >
-        <div className="max-w-7xl mx-auto px-6 text-center">
+        <div className="max-w-6xl mx-auto px-6 text-center">
 
           <p className="uppercase tracking-[0.3em] text-zinc-500 mb-6">
             Обо мне
           </p>
 
-          <h2 className="text-5xl md:text-7xl font-black leading-[1] tracking-tight max-w-5xl mx-auto">
+          <h2 className="text-5xl md:text-7xl font-black leading-[1] tracking-tight">
             Создаю современные
             <br />
             AI-продукты
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-8 mt-20 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 mt-20">
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 text-center">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10">
               <h3 className="text-4xl font-bold mb-6">
                 Кто я
               </h3>
 
-              <p className="text-zinc-400 text-xl leading-relaxed">
+              <p className="text-zinc-400 text-lg leading-relaxed">
                 Я занимаюсь разработкой AI-сервисов,
                 web-приложений, автоматизацией
                 бизнес-процессов и созданием
@@ -149,12 +159,13 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 text-center">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10">
               <h3 className="text-4xl font-bold mb-6">
                 Технологии
               </h3>
 
-              <div className="flex flex-wrap justify-center gap-4">
+              <div className="flex flex-wrap justify-center gap-3">
+
                 {[
                   "Next.js",
                   "React",
@@ -165,14 +176,17 @@ export default function Home() {
                 ].map((tech) => (
                   <div
                     key={tech}
-                    className="px-5 py-3 rounded-2xl border border-white/10 bg-white/5 text-lg"
+                    className="px-5 py-3 rounded-2xl border border-white/10 bg-white/5"
                   >
                     {tech}
                   </div>
                 ))}
+
               </div>
             </div>
+
           </div>
+
         </div>
       </section>
 
@@ -181,7 +195,7 @@ export default function Home() {
         id="projects"
         className="py-32 border-t border-white/5"
       >
-        <div className="max-w-7xl mx-auto px-6 text-center">
+        <div className="max-w-6xl mx-auto px-6 text-center">
 
           <p className="uppercase tracking-[0.3em] text-zinc-500 mb-6">
             Проекты
@@ -191,44 +205,46 @@ export default function Home() {
             Избранные работы
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-8 mt-20 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 mt-20">
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 min-h-[420px] flex flex-col justify-end text-center hover:bg-white/[0.05] transition">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 min-h-[420px] flex flex-col justify-end">
               <h3 className="text-5xl font-bold mb-5">
                 AI Assistant
               </h3>
 
-              <p className="text-zinc-400 text-xl leading-relaxed mb-8">
+              <p className="text-zinc-400 text-lg leading-relaxed mb-8">
                 AI-ассистент для автоматизации задач,
                 генерации контента и работы с клиентами.
               </p>
 
               <a
                 href="#"
-                className="text-xl font-semibold hover:text-zinc-400 transition"
+                className="text-lg font-semibold hover:text-zinc-400 transition"
               >
                 Смотреть проект →
               </a>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 min-h-[420px] flex flex-col justify-end text-center hover:bg-white/[0.05] transition">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 min-h-[420px] flex flex-col justify-end">
               <h3 className="text-5xl font-bold mb-5">
                 Telegram Automation
               </h3>
 
-              <p className="text-zinc-400 text-xl leading-relaxed mb-8">
+              <p className="text-zinc-400 text-lg leading-relaxed mb-8">
                 Telegram-боты, AI-интеграции
                 и автоматизация бизнес-процессов.
               </p>
 
               <a
                 href="#"
-                className="text-xl font-semibold hover:text-zinc-400 transition"
+                className="text-lg font-semibold hover:text-zinc-400 transition"
               >
                 Смотреть проект →
               </a>
             </div>
+
           </div>
+
         </div>
       </section>
 
@@ -237,24 +253,26 @@ export default function Home() {
         id="contact"
         className="py-32 border-t border-white/5"
       >
-        <div className="max-w-5xl mx-auto px-6 text-center">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+
           <p className="uppercase tracking-[0.3em] text-zinc-500 mb-6">
             Контакты
           </p>
 
-          <h2 className="text-5xl md:text-7xl font-black leading-[1] tracking-tight">
+          <h2 className="text-5xl md:text-7xl font-black leading-[1]">
             Давайте создадим
             <br />
             что-то великое
           </h2>
 
-          <p className="mt-10 text-zinc-400 text-xl leading-relaxed max-w-3xl mx-auto">
+          <p className="mt-10 text-zinc-400 text-xl leading-relaxed">
             Открыт для сотрудничества,
             AI-проектов и современных
             digital-решений.
           </p>
 
           <div className="mt-14 flex flex-wrap justify-center gap-10 text-2xl font-semibold">
+
             <a
               href="https://t.me/ericilyano"
               target="_blank"
@@ -277,13 +295,16 @@ export default function Home() {
             >
               Email
             </a>
+
           </div>
+
         </div>
       </section>
 
       {/* FOOTER */}
       <footer className="border-t border-white/5 py-10">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+
           <div className="text-center md:text-left">
             <h3 className="text-3xl font-black">
               Эрик.dev
@@ -295,31 +316,22 @@ export default function Home() {
           </div>
 
           <div className="flex gap-8 text-zinc-400">
-            <a
-              href="https://t.me/ericilyano"
-              target="_blank"
-              className="hover:text-white transition"
-            >
+            <a href="https://t.me/ericilyano" target="_blank">
               Telegram
             </a>
 
-            <a
-              href="https://github.com/errorkorolevsky"
-              target="_blank"
-              className="hover:text-white transition"
-            >
+            <a href="https://github.com/errorkorolevsky" target="_blank">
               GitHub
             </a>
 
-            <a
-              href="mailto:artemfi435@gmail.com"
-              className="hover:text-white transition"
-            >
+            <a href="mailto:artemfi435@gmail.com">
               Email
             </a>
           </div>
+
         </div>
       </footer>
+
     </main>
   );
 }
