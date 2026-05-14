@@ -15,6 +15,15 @@ const fadeUp = {
   },
 };
 
+const terminalLines = [
+  "Initializing AI systems...",
+  "Connecting automation pipelines...",
+  "Deploying cloud infrastructure...",
+  "Running intelligent workflows...",
+  "AI models synchronized.",
+  "System status: operational.",
+];
+
 export default function Home() {
 
   const [mousePosition, setMousePosition] = useState({
@@ -61,14 +70,12 @@ export default function Home() {
   return (
     <main className="site-wrapper">
 
-      {/* PREMIUM CURSOR */}
+      {/* CURSOR */}
 
       <div
         ref={cursorRef}
         className="premium-cursor"
       />
-
-      {/* MOUSE GLOW */}
 
       <div
         className="mouse-glow"
@@ -78,7 +85,7 @@ export default function Home() {
         }}
       />
 
-      {/* AMBIENT */}
+      {/* BACKGROUND */}
 
       <div className="ambient ambient-1"></div>
       <div className="ambient ambient-2"></div>
@@ -105,6 +112,7 @@ export default function Home() {
 
             <a href="#hero">Главная</a>
             <a href="#services">Услуги</a>
+            <a href="#terminal">AI System</a>
             <a href="#dashboard">Dashboard</a>
             <a href="#projects">Проекты</a>
             <a href="#contact">Контакты</a>
@@ -280,7 +288,87 @@ export default function Home() {
 
       </section>
 
-      {/* LIVE DASHBOARD */}
+      {/* TERMINAL */}
+
+      <section
+        id="terminal"
+        className="section"
+      >
+
+        <div className="section-container">
+
+          <div className="section-heading">
+
+            <div className="section-label">
+              LIVE AI SYSTEM
+            </div>
+
+            <h2 className="section-title">
+              AI Terminal
+            </h2>
+
+          </div>
+
+          <motion.div
+            whileHover={{
+              scale: 1.01,
+            }}
+            className="terminal-window"
+          >
+
+            <div className="terminal-topbar">
+
+              <div className="terminal-dots">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+              </div>
+
+              <div className="terminal-title">
+                ai-system.console
+              </div>
+
+            </div>
+
+            <div className="terminal-content">
+
+              {terminalLines.map((line, index) => (
+
+                <motion.div
+                  key={index}
+                  initial={{
+                    opacity: 0,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                  }}
+                  transition={{
+                    delay: index * 0.4,
+                  }}
+                  className="terminal-line"
+                >
+
+                  <span className="terminal-prefix">
+                    $
+                  </span>
+
+                  {line}
+
+                </motion.div>
+
+              ))}
+
+            </div>
+
+          </motion.div>
+
+        </div>
+
+      </section>
+
+      {/* DASHBOARD */}
 
       <section
         id="dashboard"
