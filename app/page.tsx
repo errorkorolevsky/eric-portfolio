@@ -52,7 +52,7 @@ export default function Home() {
         }}
       />
 
-      {/* BACKGROUND */}
+      {/* AMBIENT */}
 
       <div className="ambient ambient-1"></div>
       <div className="ambient ambient-2"></div>
@@ -78,6 +78,10 @@ export default function Home() {
 
             <a href="#services">
               Услуги
+            </a>
+
+            <a href="#dashboard">
+              Dashboard
             </a>
 
             <a href="#projects">
@@ -119,16 +123,16 @@ export default function Home() {
             <br />
             digital systems
             <br />
-            для AI automation
+            для automation
             <br />
-            и SaaS products
+            и AI products
 
           </h1>
 
           <p className="hero-description">
 
             AI automation, Telegram ecosystems,
-            AI assistants, SaaS platforms
+            SaaS systems, AI assistants
             и premium digital infrastructure
             нового поколения.
 
@@ -159,14 +163,7 @@ export default function Home() {
 
         <div className="section-container">
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            transition={{ duration: 0.8 }}
-            className="section-heading"
-          >
+          <div className="section-heading">
 
             <div className="section-label">
               SERVICES
@@ -180,7 +177,7 @@ export default function Home() {
 
             </h2>
 
-          </motion.div>
+          </div>
 
           <div className="services-grid">
 
@@ -199,10 +196,10 @@ export default function Home() {
               </h3>
 
               <p>
-                Интеллектуальные AI systems,
                 OpenAI integration,
-                AI assistants
-                и automation workflows.
+                AI assistants,
+                intelligent workflows
+                и scalable AI systems.
               </p>
 
             </motion.div>
@@ -223,9 +220,9 @@ export default function Home() {
 
               <p>
                 Telegram automation,
-                AI workflows,
                 CRM systems,
-                notifications и scalable automation.
+                AI workflows
+                и business automation platforms.
               </p>
 
             </motion.div>
@@ -245,15 +242,201 @@ export default function Home() {
               </h3>
 
               <p>
-                Современные SaaS systems,
-                web platforms,
-                dashboards
+                Modern SaaS systems,
+                dashboards,
+                analytics
                 и premium digital experiences.
               </p>
 
             </motion.div>
 
           </div>
+
+        </div>
+
+      </section>
+
+      {/* LIVE DASHBOARD */}
+
+      <section
+        id="dashboard"
+        className="section"
+      >
+
+        <div className="section-container">
+
+          <div className="section-heading">
+
+            <div className="section-label">
+              LIVE AI SYSTEM
+            </div>
+
+            <h2 className="section-title">
+              Interactive Dashboard
+            </h2>
+
+          </div>
+
+          <motion.div
+            whileHover={{
+              scale: 1.01,
+            }}
+            className="live-dashboard"
+          >
+
+            {/* SIDEBAR */}
+
+            <div className="live-sidebar">
+
+              <div className="sidebar-logo"></div>
+
+              <div className="sidebar-items">
+
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+
+              </div>
+
+            </div>
+
+            {/* CONTENT */}
+
+            <div className="live-content">
+
+              {/* TOP */}
+
+              <div className="live-top">
+
+                <div className="live-search"></div>
+
+                <div className="live-profile"></div>
+
+              </div>
+
+              {/* STATS */}
+
+              <div className="live-stats">
+
+                <motion.div
+                  animate={{
+                    y: [0, -5, 0],
+                  }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 4,
+                  }}
+                  className="stat-card"
+                >
+
+                  <div className="stat-value">
+                    98%
+                  </div>
+
+                  <div className="stat-label">
+                    AI Accuracy
+                  </div>
+
+                </motion.div>
+
+                <motion.div
+                  animate={{
+                    y: [0, -7, 0],
+                  }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 5,
+                  }}
+                  className="stat-card"
+                >
+
+                  <div className="stat-value">
+                    24/7
+                  </div>
+
+                  <div className="stat-label">
+                    Automation
+                  </div>
+
+                </motion.div>
+
+                <motion.div
+                  animate={{
+                    y: [0, -4, 0],
+                  }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 3,
+                  }}
+                  className="stat-card"
+                >
+
+                  <div className="stat-value">
+                    +320%
+                  </div>
+
+                  <div className="stat-label">
+                    Productivity
+                  </div>
+
+                </motion.div>
+
+              </div>
+
+              {/* CHART */}
+
+              <div className="chart-block">
+
+                <div className="chart-lines">
+
+                  <motion.div
+                    animate={{
+                      height: [40, 100, 70, 120],
+                    }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 4,
+                    }}
+                  />
+
+                  <motion.div
+                    animate={{
+                      height: [90, 60, 130, 80],
+                    }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 5,
+                    }}
+                  />
+
+                  <motion.div
+                    animate={{
+                      height: [60, 120, 80, 150],
+                    }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 6,
+                    }}
+                  />
+
+                  <motion.div
+                    animate={{
+                      height: [100, 70, 140, 90],
+                    }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 5,
+                    }}
+                  />
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </motion.div>
 
         </div>
 
@@ -268,14 +451,7 @@ export default function Home() {
 
         <div className="section-container">
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            transition={{ duration: 0.8 }}
-            className="section-heading"
-          >
+          <div className="section-heading">
 
             <div className="section-label">
               SELECTED WORK
@@ -285,68 +461,18 @@ export default function Home() {
               AI SaaS Systems
             </h2>
 
-          </motion.div>
+          </div>
 
           <div className="projects-grid">
-
-            {/* PROJECT 1 */}
 
             <motion.div
               whileHover={{
                 y: -12,
-                scale: 1.01,
               }}
               className="project-card"
             >
 
-              <div className="project-preview advanced-preview">
-
-                <div className="preview-glow"></div>
-
-                <div className="preview-topbar">
-
-                  <div className="preview-dots">
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                  </div>
-
-                  <div className="preview-search"></div>
-
-                </div>
-
-                <div className="dashboard-layout">
-
-                  <div className="dashboard-sidebar">
-
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-
-                  </div>
-
-                  <div className="dashboard-main">
-
-                    <div className="dashboard-hero-card"></div>
-
-                    <div className="dashboard-stats">
-
-                      <div></div>
-                      <div></div>
-                      <div></div>
-
-                    </div>
-
-                    <div className="dashboard-chart-large"></div>
-
-                  </div>
-
-                </div>
-
-              </div>
+              <div className="project-preview"></div>
 
               <div className="project-content">
 
@@ -359,58 +485,24 @@ export default function Home() {
                 </h3>
 
                 <p>
-
-                  Intelligent SaaS ecosystem
-                  для AI automation,
-                  analytics,
-                  workflow management
-                  и scalable digital infrastructure.
-
+                  Intelligent AI ecosystem
+                  для analytics,
+                  workflows
+                  и scalable automation systems.
                 </p>
-
-                <a href="#">
-                  Смотреть проект →
-                </a>
 
               </div>
 
             </motion.div>
 
-            {/* PROJECT 2 */}
-
             <motion.div
               whileHover={{
                 y: -12,
-                scale: 1.01,
               }}
               className="project-card"
             >
 
-              <div className="project-preview advanced-preview">
-
-                <div className="preview-glow"></div>
-
-                <div className="telegram-ui">
-
-                  <div className="telegram-header"></div>
-
-                  <div className="telegram-chat">
-
-                    <div className="message left"></div>
-                    <div className="message right"></div>
-                    <div className="message left short"></div>
-                    <div className="message right"></div>
-
-                  </div>
-
-                  <div className="telegram-input"></div>
-
-                </div>
-
-                <div className="floating-stat stat-1"></div>
-                <div className="floating-stat stat-2"></div>
-
-              </div>
+              <div className="project-preview second"></div>
 
               <div className="project-content">
 
@@ -423,18 +515,11 @@ export default function Home() {
                 </h3>
 
                 <p>
-
-                  AI automation ecosystem
-                  для Telegram workflows,
-                  CRM systems,
+                  Telegram automation ecosystem,
+                  AI workflows,
                   notifications
                   и intelligent automation pipelines.
-
                 </p>
-
-                <a href="#">
-                  Смотреть проект →
-                </a>
 
               </div>
 
@@ -453,14 +538,7 @@ export default function Home() {
         className="contact-section"
       >
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-          transition={{ duration: 0.8 }}
-          className="contact-content"
-        >
+        <div className="contact-content">
 
           <div className="section-label">
             CONTACT
@@ -478,10 +556,10 @@ export default function Home() {
 
           <p className="contact-description">
 
-            Открыт для AI systems,
+            Open for AI systems,
             automation platforms,
-            Telegram ecosystems
-            и premium digital products.
+            SaaS products
+            и premium digital experiences.
 
           </p>
 
@@ -501,7 +579,7 @@ export default function Home() {
 
           </div>
 
-        </motion.div>
+        </div>
 
       </section>
 
