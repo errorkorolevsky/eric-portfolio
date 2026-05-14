@@ -1,0 +1,527 @@
+/* ================================================= */
+/* DASHBOARD SECTION */
+/* ================================================= */
+
+.dashboard-section {
+  position: relative;
+
+  width: 100%;
+
+  padding:
+    180px 0;
+
+  overflow: hidden;
+}
+
+/* ================================================= */
+/* CONTAINER */
+/* ================================================= */
+
+.dashboard-container {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  padding:
+    0 32px;
+
+  z-index: 2;
+}
+
+/* ================================================= */
+/* HEADER */
+/* ================================================= */
+
+.dashboard-header {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 40px;
+
+  margin-bottom: 80px;
+}
+
+.dashboard-header-left {
+  max-width: 720px;
+}
+
+.dashboard-label {
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.35em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(255,255,255,0.45);
+
+  margin-bottom: 24px;
+}
+
+.dashboard-title {
+  font-size: clamp(
+    52px,
+    7vw,
+    110px
+  );
+
+  line-height: 0.95;
+
+  font-weight: 900;
+
+  letter-spacing: -0.06em;
+
+  color: #ffffff;
+
+  margin-bottom: 28px;
+}
+
+.dashboard-description {
+  max-width: 620px;
+
+  font-size: 18px;
+
+  line-height: 1.8;
+
+  color:
+    rgba(255,255,255,0.68);
+}
+
+/* ================================================= */
+/* STATUS */
+/* ================================================= */
+
+.dashboard-status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding:
+    18px 24px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255,255,255,0.04);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter:
+    blur(20px);
+}
+
+.dashboard-status-dot {
+  width: 10px;
+
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 20px rgba(255,255,255,0.8);
+
+  animation:
+    glowPulse 2s ease-in-out infinite;
+}
+
+.dashboard-status-text {
+  font-size: 13px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(255,255,255,0.8);
+}
+
+/* ================================================= */
+/* GRID */
+/* ================================================= */
+
+.dashboard-grid {
+  display: grid;
+
+  grid-template-columns:
+    1.5fr 1fr;
+
+  gap: 32px;
+}
+
+/* ================================================= */
+/* PANEL */
+/* ================================================= */
+
+.dashboard-panel {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 36px;
+
+  padding:
+    36px;
+
+  background:
+    rgba(255,255,255,0.03);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter:
+    blur(24px);
+
+  -webkit-backdrop-filter:
+    blur(24px);
+
+  transition:
+    all 0.5s cubic-bezier(
+      0.25,
+      0.1,
+      0.25,
+      1
+    );
+}
+
+.dashboard-panel:hover {
+  transform:
+    translateY(-8px);
+
+  border:
+    1px solid rgba(255,255,255,0.14);
+
+  box-shadow:
+    0 0 60px rgba(255,255,255,0.05);
+}
+
+/* ================================================= */
+/* PANEL GLOW */
+/* ================================================= */
+
+.dashboard-panel-glow {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(255,255,255,0.08),
+      transparent 60%
+    );
+
+  opacity: 0.7;
+
+  pointer-events: none;
+}
+
+/* ================================================= */
+/* ANALYTICS */
+/* ================================================= */
+
+.analytics-chart-shell {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 32px;
+}
+
+.analytics-chart-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 24px;
+}
+
+.analytics-chart-label {
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.24em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(255,255,255,0.45);
+
+  margin-bottom: 12px;
+}
+
+.analytics-chart-title {
+  font-size: 32px;
+
+  font-weight: 800;
+
+  color: #ffffff;
+
+  letter-spacing: -0.04em;
+}
+
+.analytics-chart-status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(255,255,255,0.7);
+}
+
+.analytics-status-dot {
+  width: 8px;
+
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 16px rgba(255,255,255,0.8);
+}
+
+/* ================================================= */
+/* CHART */
+/* ================================================= */
+
+.analytics-grid {
+  display: grid;
+
+  grid-template-columns:
+    1.4fr 1fr;
+
+  gap: 28px;
+}
+
+.analytics-chart-box {
+  position: relative;
+
+  overflow: hidden;
+
+  min-height: 420px;
+
+  border-radius: 28px;
+
+  padding:
+    32px;
+
+  background:
+    rgba(255,255,255,0.03);
+
+  border:
+    1px solid rgba(255,255,255,0.06);
+}
+
+.analytics-chart-background {
+  position: absolute;
+
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    40px 40px;
+
+  opacity: 0.4;
+}
+
+.analytics-bars {
+  position: relative;
+
+  height: 100%;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  z-index: 2;
+}
+
+.analytics-bar-wrapper {
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 16px;
+
+  height: 100%;
+}
+
+.analytics-bar {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 72px;
+
+  border-radius:
+    24px 24px 12px 12px;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(255,255,255,0.15),
+      rgba(255,255,255,0.85)
+    );
+
+  overflow: hidden;
+}
+
+.analytics-bar-glow {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(255,255,255,0.9),
+      transparent 70%
+    );
+
+  opacity: 0.9;
+}
+
+.analytics-bar-label {
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  text-align: center;
+
+  color:
+    rgba(255,255,255,0.55);
+}
+
+/* ================================================= */
+/* METRICS */
+/* ================================================= */
+
+.analytics-metrics {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.analytics-metric-card {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 24px;
+
+  padding:
+    28px;
+
+  background:
+    rgba(255,255,255,0.03);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  transition:
+    all 0.4s ease;
+}
+
+.analytics-metric-card:hover {
+  transform:
+    translateY(-4px);
+
+  border:
+    1px solid rgba(255,255,255,0.14);
+}
+
+.analytics-metric-glow {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(255,255,255,0.08),
+      transparent 60%
+    );
+}
+
+.analytics-metric-value {
+  position: relative;
+
+  font-size: 42px;
+
+  font-weight: 900;
+
+  letter-spacing: -0.05em;
+
+  color: #ffffff;
+
+  margin-bottom: 10px;
+
+  z-index: 2;
+}
+
+.analytics-metric-label {
+  position: relative;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+
+  color:
+    rgba(255,255,255,0.6);
+
+  z-index: 2;
+}

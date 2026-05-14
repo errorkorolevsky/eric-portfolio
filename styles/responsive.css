@@ -1,0 +1,444 @@
+/* ================================================= */
+/* LARGE DESKTOP */
+/* ================================================= */
+
+@media (max-width: 1600px) {
+
+  .container,
+  .dashboard-container,
+  .terminal-container {
+    max-width: 1280px;
+  }
+
+}
+
+/* ================================================= */
+/* DESKTOP */
+/* ================================================= */
+
+@media (max-width: 1400px) {
+
+  .hero-title,
+  .dashboard-title,
+  .terminal-title,
+  .section-title,
+  .contact-title {
+    font-size: clamp(
+      48px,
+      7vw,
+      92px
+    );
+  }
+
+  .projects-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+/* ================================================= */
+/* LAPTOP */
+/* ================================================= */
+
+@media (max-width: 1200px) {
+
+  .container,
+  .dashboard-container,
+  .terminal-container {
+    padding:
+      0 24px;
+  }
+
+  .dashboard-grid,
+  .analytics-grid,
+  .contact-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+  .terminal-side-panel {
+    position: relative;
+
+    top: auto;
+    right: auto;
+
+    transform: none;
+
+    width: 100%;
+
+    margin-top: 32px;
+  }
+
+  .projects-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+  .floating-panels-wrapper {
+    transform:
+      scale(0.92);
+  }
+
+}
+
+/* ================================================= */
+/* TABLET */
+/* ================================================= */
+
+@media (max-width: 992px) {
+
+  .navbar {
+    padding:
+      20px 24px;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
+  .hero-section,
+  .dashboard-section,
+  .terminal-section,
+  .projects-section,
+  .contact-section {
+    padding:
+      140px 0;
+  }
+
+  .hero-content,
+  .dashboard-header,
+  .footer-top {
+    flex-direction: column;
+  }
+
+  .hero-description,
+  .dashboard-description,
+  .terminal-description,
+  .section-description,
+  .contact-description {
+    font-size: 17px;
+  }
+
+  .analytics-bars {
+    gap: 12px;
+  }
+
+  .analytics-bar {
+    max-width: 56px;
+  }
+
+  .floating-panels-wrapper {
+    display: none;
+  }
+
+}
+
+/* ================================================= */
+/* MOBILE */
+/* ================================================= */
+
+@media (max-width: 768px) {
+
+  .container,
+  .dashboard-container,
+  .terminal-container {
+    padding:
+      0 20px;
+  }
+
+  .hero-section,
+  .dashboard-section,
+  .terminal-section,
+  .projects-section,
+  .contact-section,
+  .footer-section {
+    padding:
+      120px 0;
+  }
+
+  .hero-title,
+  .dashboard-title,
+  .terminal-title,
+  .section-title,
+  .contact-title {
+    font-size: clamp(
+      42px,
+      12vw,
+      72px
+    );
+
+    line-height: 0.98;
+  }
+
+  .hero-description,
+  .dashboard-description,
+  .terminal-description,
+  .section-description,
+  .contact-description {
+    font-size: 16px;
+
+    line-height: 1.8;
+  }
+
+  .section-label,
+  .dashboard-label,
+  .terminal-label {
+    font-size: 11px;
+
+    letter-spacing: 0.28em;
+  }
+
+  .dashboard-panel,
+  .project-shell,
+  .project-card-shell,
+  .contact-card,
+  .footer-panel,
+  .analytics-chart-box,
+  .analytics-metric-card {
+    border-radius: 28px;
+  }
+
+  .terminal-shell,
+  .chatbot-window {
+    border-radius: 28px;
+  }
+
+  .terminal-body {
+    padding:
+      24px;
+  }
+
+  .terminal-line {
+    font-size: 14px;
+
+    gap: 12px;
+  }
+
+  .analytics-chart-box {
+    min-height: 340px;
+
+    padding:
+      24px;
+  }
+
+  .analytics-bar {
+    max-width: 44px;
+  }
+
+  .analytics-metric-value {
+    font-size: 34px;
+  }
+
+  .contact-grid,
+  .projects-grid {
+    gap: 20px;
+  }
+
+  .project-content,
+  .contact-card,
+  .dashboard-panel,
+  .footer-panel {
+    padding:
+      24px;
+  }
+
+  .chatbot-window {
+    height: 72vh;
+  }
+
+}
+
+/* ================================================= */
+/* SMALL MOBILE */
+/* ================================================= */
+
+@media (max-width: 540px) {
+
+  .hero-title,
+  .dashboard-title,
+  .terminal-title,
+  .section-title,
+  .contact-title {
+    font-size: clamp(
+      36px,
+      12vw,
+      56px
+    );
+  }
+
+  .hero-description,
+  .dashboard-description,
+  .terminal-description,
+  .section-description,
+  .contact-description {
+    font-size: 15px;
+  }
+
+  .navbar {
+    padding:
+      18px 18px;
+  }
+
+  .hero-section,
+  .dashboard-section,
+  .terminal-section,
+  .projects-section,
+  .contact-section,
+  .footer-section {
+    padding:
+      100px 0;
+  }
+
+  .dashboard-panel,
+  .project-shell,
+  .project-card-shell,
+  .contact-card,
+  .footer-panel {
+    padding:
+      22px;
+  }
+
+  .analytics-chart-box {
+    padding:
+      20px;
+  }
+
+  .analytics-bars {
+    gap: 8px;
+  }
+
+  .analytics-bar {
+    max-width: 36px;
+  }
+
+  .terminal-body {
+    padding:
+      20px;
+  }
+
+  .terminal-line {
+    font-size: 13px;
+  }
+
+  .chatbot-input-wrapper {
+    padding:
+      16px;
+  }
+
+  .chatbot-input {
+    height: 50px;
+  }
+
+  .chatbot-send {
+    height: 50px;
+
+    padding:
+      0 18px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+
+    gap: 12px;
+
+    text-align: center;
+  }
+
+}
+
+/* ================================================= */
+/* EXTRA SMALL */
+/* ================================================= */
+
+@media (max-width: 400px) {
+
+  .hero-title,
+  .dashboard-title,
+  .terminal-title,
+  .section-title,
+  .contact-title {
+    font-size: 34px;
+  }
+
+  .analytics-bar {
+    max-width: 28px;
+  }
+
+  .analytics-bar-label {
+    font-size: 11px;
+  }
+
+  .chatbot-window {
+    left: 10px;
+
+    right: 10px;
+
+    bottom: 90px;
+  }
+
+}
+
+/* ================================================= */
+/* HEIGHT FIXES */
+/* ================================================= */
+
+@media (max-height: 800px) {
+
+  .hero-section {
+    min-height: auto;
+
+    padding:
+      140px 0;
+  }
+
+  .chatbot-window {
+    height: 78vh;
+  }
+
+}
+
+/* ================================================= */
+/* LANDSCAPE MOBILE */
+/* ================================================= */
+
+@media (max-height: 540px)
+and (orientation: landscape) {
+
+  .hero-section,
+  .dashboard-section,
+  .terminal-section,
+  .projects-section,
+  .contact-section {
+    padding:
+      90px 0;
+  }
+
+  .chatbot-window {
+    height: 90vh;
+  }
+
+}
+
+/* ================================================= */
+/* TOUCH DEVICES */
+/* ================================================= */
+
+@media (hover: none) {
+
+  .hover-lift:hover,
+  .hover-scale:hover,
+  .project-shell:hover,
+  .project-card-shell:hover,
+  .contact-card:hover,
+  .dashboard-panel:hover {
+    transform: none;
+  }
+
+  .custom-cursor,
+  .cursor-ring,
+  .cursor-glow {
+    display: none;
+  }
+
+}

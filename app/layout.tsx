@@ -1,43 +1,129 @@
 import type { Metadata } from "next";
+
 import "./globals.css";
 
+/* STYLE SYSTEM */
+
+import "@/styles/animations.css";
+import "@/styles/dashboard.css";
+import "@/styles/terminal.css";
+import "@/styles/chatbot.css";
+import "@/styles/responsive.css";
+
+/* PREMIUM SYSTEMS */
+
+import MotionProvider from "@/components/MotionProvider";
+import Cursor from "@/components/Cursor";
+import AmbientBackground from "@/components/AmbientBackground";
+import LoadingScreen from "@/components/LoadingScreen";
+import Chatbot from "@/components/Chatbot";
+
+/* METADATA */
+
 export const metadata: Metadata = {
-  title: "Эрик.dev — AI Systems Engineer",
+
+  title:
+    "Эрик.dev — AI Systems & Automation",
+
   description:
-    "Premium AI systems, automation infrastructure and digital products.",
+    "Premium AI systems, automation infrastructure, SaaS platforms и современные digital ecosystems.",
+
+  keywords: [
+
+    "AI Systems",
+    "Automation",
+    "OpenAI",
+    "SaaS",
+    "Next.js",
+    "AI Developer",
+    "Digital Products",
+    "Infrastructure",
+
+  ],
+
+  openGraph: {
+
+    title:
+      "Эрик.dev — AI Systems & Automation",
+
+    description:
+      "Premium AI systems, automation infrastructure и современные digital ecosystems.",
+
+    url:
+      "https://ericdev.vercel.app",
+
+    siteName:
+      "Эрик.dev",
+
+    locale:
+      "ru_RU",
+
+    type:
+      "website",
+
+  },
+
+  twitter: {
+
+    card:
+      "summary_large_image",
+
+    title:
+      "Эрик.dev — AI Systems",
+
+    description:
+      "Premium AI infrastructure & automation ecosystems.",
+
+  },
+
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
+
   return (
+
     <html lang="ru">
+
       <body>
-        <div className="noise" />
 
-        <div className="ambient ambient-1" />
-        <div className="ambient ambient-2" />
-        <div className="ambient ambient-3" />
+        {/* MOTION */}
 
-        <div id="cursor-glow" className="cursor-glow" />
+        <MotionProvider>
 
-        {children}
+          {/* LOADING */}
 
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              const glow = document.getElementById('cursor-glow');
+          <LoadingScreen />
 
-              window.addEventListener('mousemove', (e) => {
-                glow.style.left = e.clientX + 'px';
-                glow.style.top = e.clientY + 'px';
-              });
-            `,
-          }}
-        />
+          {/* CURSOR */}
+
+          <Cursor />
+
+          {/* AMBIENT BACKGROUND */}
+
+          <AmbientBackground />
+
+          {/* APP */}
+
+          <div className="app-shell">
+
+            {children}
+
+          </div>
+
+          {/* AI CHATBOT */}
+
+          <Chatbot />
+
+        </MotionProvider>
+
       </body>
+
     </html>
+
   );
+
 }

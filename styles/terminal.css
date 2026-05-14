@@ -1,0 +1,466 @@
+/* ================================================= */
+/* TERMINAL SECTION */
+/* ================================================= */
+
+.terminal-section {
+  position: relative;
+
+  width: 100%;
+
+  padding:
+    180px 0;
+
+  overflow: hidden;
+}
+
+/* ================================================= */
+/* CONTAINER */
+/* ================================================= */
+
+.terminal-container {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  padding:
+    0 32px;
+
+  z-index: 2;
+}
+
+/* ================================================= */
+/* HEADER */
+/* ================================================= */
+
+.terminal-header {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+  gap: 24px;
+
+  margin-bottom: 80px;
+}
+
+.terminal-label {
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.35em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(255,255,255,0.45);
+}
+
+.terminal-title {
+  max-width: 1000px;
+
+  font-size: clamp(
+    52px,
+    8vw,
+    120px
+  );
+
+  line-height: 0.92;
+
+  letter-spacing: -0.06em;
+
+  font-weight: 900;
+
+  color: #ffffff;
+}
+
+.terminal-description {
+  max-width: 760px;
+
+  font-size: 18px;
+
+  line-height: 1.8;
+
+  color:
+    rgba(255,255,255,0.68);
+}
+
+/* ================================================= */
+/* TERMINAL */
+/* ================================================= */
+
+.terminal-shell {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 36px;
+
+  background:
+    rgba(8,8,8,0.92);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter:
+    blur(30px);
+
+  -webkit-backdrop-filter:
+    blur(30px);
+
+  box-shadow:
+    0 0 100px rgba(255,255,255,0.03);
+}
+
+/* ================================================= */
+/* GLOW */
+/* ================================================= */
+
+.terminal-glow {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(255,255,255,0.08),
+      transparent 70%
+    );
+
+  pointer-events: none;
+}
+
+/* ================================================= */
+/* TOPBAR */
+/* ================================================= */
+
+.terminal-topbar {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding:
+    22px 28px;
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.06);
+
+  background:
+    rgba(255,255,255,0.02);
+
+  z-index: 2;
+}
+
+.terminal-topbar-left {
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+}
+
+.terminal-dots {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.terminal-dots span {
+  width: 12px;
+
+  height: 12px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,0.3);
+}
+
+.terminal-name {
+  font-size: 14px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.04em;
+
+  color:
+    rgba(255,255,255,0.72);
+}
+
+.terminal-status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(255,255,255,0.7);
+}
+
+.terminal-status-dot {
+  width: 8px;
+
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 14px rgba(255,255,255,0.8);
+
+  animation:
+    glowPulse 2s ease-in-out infinite;
+}
+
+/* ================================================= */
+/* BODY */
+/* ================================================= */
+
+.terminal-body {
+  position: relative;
+
+  padding:
+    36px;
+
+  min-height: 520px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 22px;
+
+  z-index: 2;
+}
+
+/* ================================================= */
+/* LINES */
+/* ================================================= */
+
+.terminal-line {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+
+  color:
+    rgba(255,255,255,0.78);
+
+  animation:
+    fadeUp 0.8s ease forwards;
+}
+
+.terminal-prefix {
+  color:
+    rgba(255,255,255,0.35);
+
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+.terminal-command {
+  color: #ffffff;
+
+  font-weight: 500;
+}
+
+/* ================================================= */
+/* ACTIVE LINE */
+/* ================================================= */
+
+.terminal-active {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-top: 24px;
+}
+
+.terminal-cursor {
+  width: 10px;
+
+  height: 24px;
+
+  background: #ffffff;
+
+  border-radius: 2px;
+
+  animation:
+    terminalBlink 1s infinite;
+}
+
+/* ================================================= */
+/* OVERLAY GRID */
+/* ================================================= */
+
+.terminal-grid {
+  position: absolute;
+
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,0.02) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0.02) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    40px 40px;
+
+  opacity: 0.35;
+
+  pointer-events: none;
+}
+
+/* ================================================= */
+/* SIDE PANEL */
+/* ================================================= */
+
+.terminal-side-panel {
+  position: absolute;
+
+  top: 50%;
+
+  right: 32px;
+
+  transform:
+    translateY(-50%);
+
+  width: 260px;
+
+  border-radius: 28px;
+
+  padding:
+    24px;
+
+  background:
+    rgba(255,255,255,0.03);
+
+  border:
+    1px solid rgba(255,255,255,0.06);
+
+  backdrop-filter:
+    blur(20px);
+
+  z-index: 3;
+}
+
+.terminal-side-title {
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(255,255,255,0.45);
+
+  margin-bottom: 20px;
+}
+
+.terminal-side-metrics {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+.terminal-side-metric {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.terminal-side-value {
+  font-size: 28px;
+
+  font-weight: 900;
+
+  letter-spacing: -0.05em;
+
+  color: #ffffff;
+}
+
+.terminal-side-label {
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  color:
+    rgba(255,255,255,0.55);
+}
+
+/* ================================================= */
+/* BACKGROUND LIGHT */
+/* ================================================= */
+
+.terminal-background-light {
+  position: absolute;
+
+  top: 50%;
+
+  left: 50%;
+
+  width: 700px;
+
+  height: 700px;
+
+  transform:
+    translate(-50%, -50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,0.06),
+      transparent 70%
+    );
+
+  filter:
+    blur(120px);
+
+  opacity: 0.7;
+
+  pointer-events: none;
+}

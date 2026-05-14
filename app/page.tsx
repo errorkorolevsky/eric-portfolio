@@ -1,307 +1,180 @@
-export default function Home() {
+"use client";
+
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Services from "@/components/Services";
+import Terminal from "@/components/Terminal";
+import Projects from "@/components/Projects";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
+
+/* ADVANCED UI */
+
+import FloatingPanels from "@/components/FloatingPanels";
+import AnalyticsChart from "@/components/AnalyticsChart";
+import ActivityFeed from "@/components/ActivityFeed";
+import ScrollReveal from "@/components/ScrollReveal";
+
+export default function HomePage() {
+
   return (
-    <main className="page">
+
+    <main className="main-layout">
 
       {/* NAVBAR */}
 
-      <nav className="navbar">
-        <div className="container nav-inner">
-
-          <div className="logo">
-            Эрик.dev
-          </div>
-
-          <div className="nav-links">
-            <a href="#hero">Главная</a>
-            <a href="#about">Обо мне</a>
-            <a href="#projects">Проекты</a>
-            <a href="#contact">Контакты</a>
-          </div>
-
-        </div>
-      </nav>
+      <Navbar />
 
       {/* HERO */}
 
-      <section className="hero section" id="hero">
-        <div className="container">
+      <section
+        id="hero"
+        className="hero-wrapper"
+      >
 
-          <div className="hero-label">
-            AI • AUTOMATION • DIGITAL SYSTEMS
-          </div>
+        {/* FLOATING UI */}
 
-          <h1 className="hero-title">
-            AI Systems
-            <br />
-            Automation
-            <br />
-            Digital Products
-          </h1>
+        <FloatingPanels />
 
-          <p className="hero-description">
-            Создаю AI-инфраструктуру, intelligent systems,
-            automation platforms, SaaS-продукты и современные
-            digital ecosystems нового поколения.
-          </p>
+        {/* HERO */}
 
-          <div className="hero-buttons">
+        <Hero />
 
-            <a href="#projects" className="primary-btn">
-              Смотреть проекты
-            </a>
+      </section>
 
-            <a href="#contact" className="secondary-btn">
-              Связаться
-            </a>
+      {/* SERVICES */}
 
-          </div>
+      <ScrollReveal>
 
-          <div className="grid-3">
+        <Services />
 
-            <div className="card">
-              <div className="card-title">
-                AI Systems
+      </ScrollReveal>
+
+      {/* DASHBOARD */}
+
+      <section
+        id="dashboard"
+        className="dashboard-section"
+      >
+
+        <div className="dashboard-container">
+
+          {/* HEADER */}
+
+          <ScrollReveal>
+
+            <div className="dashboard-header">
+
+              <div className="dashboard-header-left">
+
+                <div className="dashboard-label">
+                  AI ANALYTICS
+                </div>
+
+                <h2 className="dashboard-title">
+
+                  Intelligent
+                  <br />
+
+                  Infrastructure
+
+                </h2>
+
+                <p className="dashboard-description">
+
+                  Premium AI infrastructure,
+                  realtime analytics,
+                  automation ecosystems
+                  и scalable SaaS architecture.
+
+                </p>
+
               </div>
 
-              <div className="card-text">
-                OpenAI integration, intelligent workflows,
-                scalable AI infrastructure и automation architecture.
+              <div className="dashboard-status">
+
+                <div className="dashboard-status-dot" />
+
+                <div className="dashboard-status-text">
+
+                  SYSTEMS ONLINE
+
+                </div>
+
               </div>
+
             </div>
 
-            <div className="card">
-              <div className="card-title">
-                Automation
+          </ScrollReveal>
+
+          {/* GRID */}
+
+          <div className="dashboard-grid">
+
+            {/* ANALYTICS */}
+
+            <ScrollReveal delay={0.1}>
+
+              <div className="dashboard-panel">
+
+                <div className="dashboard-panel-glow" />
+
+                <AnalyticsChart />
+
               </div>
 
-              <div className="card-text">
-                CRM systems, Telegram ecosystems,
-                automation pipelines и digital infrastructure.
-              </div>
-            </div>
+            </ScrollReveal>
 
-            <div className="card">
-              <div className="card-title">
-                Digital Products
+            {/* ACTIVITY */}
+
+            <ScrollReveal delay={0.2}>
+
+              <div className="dashboard-panel">
+
+                <div className="dashboard-panel-glow" />
+
+                <ActivityFeed />
+
               </div>
 
-              <div className="card-text">
-                SaaS platforms, premium interfaces,
-                web applications и AI experiences.
-              </div>
-            </div>
+            </ScrollReveal>
 
           </div>
 
         </div>
+
       </section>
 
-      {/* ABOUT */}
+      {/* TERMINAL */}
 
-      <section className="section" id="about">
-        <div className="container">
+      <ScrollReveal>
 
-          <div className="section-label">
-            ОБО МНЕ
-          </div>
+        <Terminal />
 
-          <h2 className="section-title">
-            Создаю современные
-            <br />
-            AI-продукты
-          </h2>
-
-          <p className="section-description">
-            Разрабатываю AI-сервисы, automation systems,
-            digital infrastructure, intelligent workflows
-            и premium digital experiences.
-          </p>
-
-          <div className="grid-2">
-
-            <div className="card">
-              <div className="card-title">
-                Кто я
-              </div>
-
-              <div className="card-text">
-                AI Systems Engineer и developer,
-                создающий современные цифровые продукты,
-                intelligent automation systems и scalable platforms.
-              </div>
-            </div>
-
-            <div className="card">
-              <div className="card-title">
-                Технологии
-              </div>
-
-              <div className="card-text">
-                Next.js • React • TypeScript • Tailwind •
-                OpenAI API • Node.js • Vercel • AI Automation
-              </div>
-            </div>
-
-          </div>
-
-          <div className="terminal">
-
-            <div className="terminal-top">
-              <div className="dot" />
-              <div className="dot" />
-              <div className="dot" />
-            </div>
-
-            <div className="terminal-line">
-              &gt; Initializing AI infrastructure...
-            </div>
-
-            <div className="terminal-line">
-              &gt; Connecting automation systems...
-            </div>
-
-            <div className="terminal-line">
-              &gt; OpenAI ecosystem online
-            </div>
-
-            <div className="terminal-line">
-              &gt; AI workflows active
-            </div>
-
-            <div className="terminal-line">
-              &gt; Premium digital systems connected
-            </div>
-
-          </div>
-
-        </div>
-      </section>
+      </ScrollReveal>
 
       {/* PROJECTS */}
 
-      <section className="section" id="projects">
+      <ScrollReveal>
 
-        <div className="container">
+        <Projects />
 
-          <div className="section-label">
-            PROJECTS
-          </div>
-
-          <h2 className="section-title">
-            Premium AI
-            <br />
-            Projects
-          </h2>
-
-          <p className="section-description">
-            Интеллектуальные digital systems,
-            AI ecosystems и automation infrastructure.
-          </p>
-
-          <div className="grid-2">
-
-            {/* PROJECT 1 */}
-
-            <div className="card">
-
-              <div className="dashboard">
-
-                <div className="dashboard-grid" />
-
-                <div className="analytics-bar">
-                  <div />
-                  <div />
-                  <div />
-                  <div />
-                  <div />
-                  <div />
-                  <div />
-                </div>
-
-              </div>
-
-              <div className="card-title">
-                AI Assistant
-              </div>
-
-              <div className="card-text">
-                Intelligent AI ecosystem для automation,
-                генерации контента, AI workflows
-                и digital infrastructure.
-              </div>
-
-            </div>
-
-            {/* PROJECT 2 */}
-
-            <div className="card">
-
-              <div className="dashboard">
-
-                <div className="dashboard-grid" />
-
-                <div className="analytics-bar">
-                  <div />
-                  <div />
-                  <div />
-                  <div />
-                  <div />
-                  <div />
-                  <div />
-                </div>
-
-              </div>
-
-              <div className="card-title">
-                Automation CRM
-              </div>
-
-              <div className="card-text">
-                AI automation system с CRM ecosystem,
-                Telegram integrations и scalable business infrastructure.
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
+      </ScrollReveal>
 
       {/* CONTACT */}
 
-      <section className="section" id="contact">
+      <ScrollReveal>
 
-        <div className="container">
+        <Contact />
 
-          <div className="section-label">
-            CONTACT
-          </div>
+      </ScrollReveal>
 
-          <h2 className="section-title">
-            Let’s build
-            <br />
-            something
-            <br />
-            exceptional
-          </h2>
+      {/* FOOTER */}
 
-          <p className="section-description">
-            Открыт для AI systems, automation platforms,
-            digital products и современных технологических проектов.
-          </p>
-
-          <div className="contact-links">
-            <a href="#">Telegram</a>
-            <a href="#">GitHub</a>
-            <a href="#">Email</a>
-          </div>
-
-        </div>
-
-      </section>
+      <Footer />
 
     </main>
+
   );
+
 }
