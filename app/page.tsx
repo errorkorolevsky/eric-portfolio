@@ -87,9 +87,9 @@ export default function Home() {
           </motion.div>
 
           {/* HERO CARDS */}
-          <div className="grid md:grid-cols-3 gap-6 mt-24">
+          <div className="grid md:grid-cols-3 gap-6 mt-24 max-w-5xl mx-auto place-items-center">
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 text-center">
+            <div className="w-full rounded-3xl border border-white/10 bg-white/[0.03] p-8 text-center">
               <h3 className="text-3xl font-bold mb-4">
                 AI Integration
               </h3>
@@ -100,7 +100,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 text-center">
+            <div className="w-full rounded-3xl border border-white/10 bg-white/[0.03] p-8 text-center">
               <h3 className="text-3xl font-bold mb-4">
                 Web Development
               </h3>
@@ -111,7 +111,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 text-center">
+            <div className="w-full rounded-3xl border border-white/10 bg-white/[0.03] p-8 text-center">
               <h3 className="text-3xl font-bold mb-4">
                 Automation
               </h3>
@@ -144,9 +144,9 @@ export default function Home() {
             AI-продукты
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-6 mt-20">
+          <div className="grid md:grid-cols-2 gap-6 mt-20 max-w-5xl mx-auto place-items-center">
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10">
+            <div className="w-full rounded-3xl border border-white/10 bg-white/[0.03] p-10 text-center">
               <h3 className="text-4xl font-bold mb-6">
                 Кто я
               </h3>
@@ -159,7 +159,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10">
+            <div className="w-full rounded-3xl border border-white/10 bg-white/[0.03] p-10 text-center">
               <h3 className="text-4xl font-bold mb-6">
                 Технологии
               </h3>
@@ -205,9 +205,9 @@ export default function Home() {
             Избранные работы
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-6 mt-20">
+          <div className="grid md:grid-cols-2 gap-6 mt-20 max-w-5xl mx-auto place-items-center">
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 min-h-[420px] flex flex-col justify-end">
+            <div className="w-full rounded-3xl border border-white/10 bg-white/[0.03] p-10 min-h-[420px] flex flex-col justify-end text-center">
               <h3 className="text-5xl font-bold mb-5">
                 AI Assistant
               </h3>
@@ -225,7 +225,7 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 min-h-[420px] flex flex-col justify-end">
+            <div className="w-full rounded-3xl border border-white/10 bg-white/[0.03] p-10 min-h-[420px] flex flex-col justify-end text-center">
               <h3 className="text-5xl font-bold mb-5">
                 Telegram Automation
               </h3>
