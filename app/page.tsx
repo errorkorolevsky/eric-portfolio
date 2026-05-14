@@ -81,7 +81,7 @@ export default function Home() {
 
           {/* HERO CARDS */}
           <div className="grid md:grid-cols-3 gap-8 mt-28">
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm text-center">
               <h3 className="text-3xl font-bold mb-5">
                 AI Integration
               </h3>
@@ -92,7 +92,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm text-center">
               <h3 className="text-3xl font-bold mb-5">
                 Web Development
               </h3>
@@ -103,7 +103,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm text-center">
               <h3 className="text-3xl font-bold mb-5">
                 Automation
               </h3>
@@ -122,20 +122,21 @@ export default function Home() {
         id="about"
         className="py-32 border-t border-white/5"
       >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-5xl">
-            <p className="uppercase tracking-[0.3em] text-zinc-500 mb-6">
-              Обо мне
-            </p>
+        <div className="max-w-7xl mx-auto px-6 text-center">
 
-            <h2 className="text-5xl md:text-7xl font-black leading-[1] tracking-tight">
-              Создаю современные
-              AI-продукты
-            </h2>
-          </div>
+          <p className="uppercase tracking-[0.3em] text-zinc-500 mb-6">
+            Обо мне
+          </p>
 
-          <div className="grid md:grid-cols-2 gap-8 mt-20">
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10">
+          <h2 className="text-5xl md:text-7xl font-black leading-[1] tracking-tight max-w-5xl mx-auto">
+            Создаю современные
+            <br />
+            AI-продукты
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-8 mt-20 max-w-6xl mx-auto">
+
+            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 text-center">
               <h3 className="text-4xl font-bold mb-6">
                 Кто я
               </h3>
@@ -148,12 +149,12 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 text-center">
               <h3 className="text-4xl font-bold mb-6">
                 Технологии
               </h3>
 
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap justify-center gap-4">
                 {[
                   "Next.js",
                   "React",
@@ -180,20 +181,19 @@ export default function Home() {
         id="projects"
         className="py-32 border-t border-white/5"
       >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-5xl">
-            <p className="uppercase tracking-[0.3em] text-zinc-500 mb-6">
-              Проекты
-            </p>
+        <div className="max-w-7xl mx-auto px-6 text-center">
 
-            <h2 className="text-5xl md:text-7xl font-black tracking-tight">
-              Избранные работы
-            </h2>
-          </div>
+          <p className="uppercase tracking-[0.3em] text-zinc-500 mb-6">
+            Проекты
+          </p>
 
-          <div className="grid md:grid-cols-2 gap-8 mt-20">
+          <h2 className="text-5xl md:text-7xl font-black tracking-tight">
+            Избранные работы
+          </h2>
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 min-h-[420px] flex flex-col justify-end hover:bg-white/[0.05] transition">
+          <div className="grid md:grid-cols-2 gap-8 mt-20 max-w-6xl mx-auto">
+
+            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 min-h-[420px] flex flex-col justify-end text-center hover:bg-white/[0.05] transition">
               <h3 className="text-5xl font-bold mb-5">
                 AI Assistant
               </h3>
@@ -211,7 +211,7 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 min-h-[420px] flex flex-col justify-end hover:bg-white/[0.05] transition">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 min-h-[420px] flex flex-col justify-end text-center hover:bg-white/[0.05] transition">
               <h3 className="text-5xl font-bold mb-5">
                 Telegram Automation
               </h3>
@@ -284,7 +284,7 @@ export default function Home() {
       {/* FOOTER */}
       <footer className="border-t border-white/5 py-10">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
+          <div className="text-center md:text-left">
             <h3 className="text-3xl font-black">
               Эрик.dev
             </h3>
