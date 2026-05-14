@@ -1,140 +1,142 @@
-// app/page.tsx
-
 "use client";
 
 import { motion } from "framer-motion";
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0 },
+};
+
 export default function Home() {
   return (
-    <main className="bg-black text-white overflow-x-hidden">
+    <main className="relative overflow-x-hidden bg-black text-white">
+
+      {/* BACKGROUND */}
+      <div className="fixed inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-[-250px] left-1/2 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-white/10 blur-3xl" />
+
+        <div className="absolute bottom-[-300px] right-[-200px] h-[600px] w-[600px] rounded-full bg-zinc-700/20 blur-3xl" />
+
+        <div className="absolute left-[-200px] top-[40%] h-[500px] w-[500px] rounded-full bg-zinc-500/10 blur-3xl" />
+
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06),transparent_65%)]" />
+      </div>
 
       {/* HEADER */}
-      <header className="fixed top-0 left-0 w-full z-50 border-b border-white/10 bg-black/80 backdrop-blur-xl">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="h-24 flex items-center justify-between">
+      <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-black/40 backdrop-blur-2xl">
+        <div className="mx-auto flex h-24 max-w-6xl items-center justify-between px-6">
 
-            <h1 className="text-3xl font-black tracking-tight">
-              Эрик.dev
-            </h1>
-
-            <nav className="hidden md:flex gap-10 text-zinc-400 text-lg">
-              <a href="#hero" className="hover:text-white transition">
-                Главная
-              </a>
-
-              <a href="#about" className="hover:text-white transition">
-                Обо мне
-              </a>
-
-              <a href="#projects" className="hover:text-white transition">
-                Проекты
-              </a>
-
-              <a href="#contact" className="hover:text-white transition">
-                Контакты
-              </a>
-            </nav>
-
+          <div className="text-3xl font-black tracking-tight">
+            Эрик.dev
           </div>
+
+          <nav className="hidden items-center gap-10 text-zinc-400 md:flex">
+            <a href="#hero" className="transition hover:text-white">
+              Главная
+            </a>
+
+            <a href="#about" className="transition hover:text-white">
+              Обо мне
+            </a>
+
+            <a href="#projects" className="transition hover:text-white">
+              Проекты
+            </a>
+
+            <a href="#contact" className="transition hover:text-white">
+              Контакты
+            </a>
+          </nav>
+
         </div>
       </header>
 
       {/* HERO */}
       <section
         id="hero"
-        className="min-h-screen flex items-center justify-center pt-32"
+        className="flex min-h-screen items-center justify-center pt-32"
       >
-        <div className="w-full max-w-6xl mx-auto px-6">
+        <div className="mx-auto w-full max-w-6xl px-6">
 
           <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
             transition={{ duration: 1 }}
             className="flex flex-col items-center text-center"
           >
 
-            <div className="mb-8 px-5 py-2 rounded-full border border-white/10 bg-white/5 text-sm text-zinc-300">
+            <div className="mb-8 rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm text-zinc-300 backdrop-blur-xl">
               AI • Web • Automation
             </div>
 
-            <h1 className="text-6xl md:text-8xl font-black leading-[0.9] tracking-tight">
+            <h1 className="text-6xl font-black leading-[0.9] tracking-tight md:text-8xl lg:text-[120px]">
               Эрик —
               <br />
               AI Developer
             </h1>
 
-            <p className="mt-12 max-w-3xl text-zinc-400 text-xl leading-9">
-              Создаю AI-сервисы, современные web-приложения
-              и digital-продукты нового поколения.
+            <p className="mt-12 max-w-3xl text-xl leading-9 text-zinc-400">
+              Создаю AI-сервисы, современные web-приложения,
+              automation-системы и digital-продукты нового поколения.
             </p>
 
             <div className="mt-14 flex flex-wrap justify-center gap-5">
 
-              <a
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 href="#contact"
-                className="px-8 py-4 rounded-2xl bg-white text-black font-semibold text-lg hover:scale-105 transition"
+                className="rounded-2xl bg-white px-8 py-4 text-lg font-semibold text-black transition"
               >
                 Связаться
-              </a>
+              </motion.a>
 
-              <a
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 href="#projects"
-                className="px-8 py-4 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition text-lg"
+                className="rounded-2xl border border-white/10 bg-white/5 px-8 py-4 text-lg transition hover:bg-white/10"
               >
                 Портфолио
-              </a>
+              </motion.a>
 
             </div>
 
           </motion.div>
 
           {/* HERO CARDS */}
-          <div className="mt-32 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="mt-32 grid grid-cols-1 gap-8 md:grid-cols-3">
 
-            <motion.div
-              whileHover={{ y: -12, scale: 1.02 }}
-              transition={{ duration: 0.25 }}
-              className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 text-center hover:bg-white/[0.05] transition"
-            >
-              <h3 className="text-3xl font-bold mb-6">
-                AI Integration
-              </h3>
+            {[
+              {
+                title: "AI Integration",
+                text: "Интеграция OpenAI, AI automation, AI assistants и умных workflow.",
+              },
+              {
+                title: "Web Development",
+                text: "Современные web-приложения на Next.js, React и TypeScript.",
+              },
+              {
+                title: "Automation",
+                text: "Telegram-боты, AI-сервисы и автоматизация бизнес-процессов.",
+              },
+            ].map((card) => (
+              <motion.div
+                key={card.title}
+                whileHover={{ y: -12, scale: 1.02 }}
+                transition={{ duration: 0.25 }}
+                className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 text-center backdrop-blur-xl transition hover:bg-white/[0.06]"
+              >
+                <h3 className="mb-6 text-3xl font-bold">
+                  {card.title}
+                </h3>
 
-              <p className="text-zinc-400 leading-8 text-lg">
-                Интеграция OpenAI, AI automation,
-                AI assistants и умных workflow.
-              </p>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ y: -12, scale: 1.02 }}
-              transition={{ duration: 0.25 }}
-              className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 text-center hover:bg-white/[0.05] transition"
-            >
-              <h3 className="text-3xl font-bold mb-6">
-                Web Development
-              </h3>
-
-              <p className="text-zinc-400 leading-8 text-lg">
-                Современные web-приложения
-                на Next.js, React и TypeScript.
-              </p>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ y: -12, scale: 1.02 }}
-              transition={{ duration: 0.25 }}
-              className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 text-center hover:bg-white/[0.05] transition"
-            >
-              <h3 className="text-3xl font-bold mb-6">
-                Automation
-              </h3>
-
-              <p className="text-zinc-400 leading-8 text-lg">
-                Telegram-боты, AI-сервисы
-                и автоматизация бизнес-процессов.
-              </p>
-            </motion.div>
+                <p className="text-lg leading-8 text-zinc-400">
+                  {card.text}
+                </p>
+              </motion.div>
+            ))}
 
           </div>
 
@@ -144,43 +146,52 @@ export default function Home() {
       {/* ABOUT */}
       <section
         id="about"
-        className="py-36 border-t border-white/5 flex justify-center"
+        className="flex justify-center border-t border-white/5 py-36"
       >
-        <div className="w-full max-w-6xl px-6 flex flex-col items-center text-center">
+        <div className="flex w-full max-w-6xl flex-col items-center px-6 text-center">
 
-          <p className="uppercase tracking-[0.3em] text-zinc-500 mb-8">
-            Обо мне
-          </p>
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
 
-          <h2 className="text-5xl md:text-7xl font-black leading-[1.1] tracking-tight">
-            Создаю современные
-            <br />
-            AI-продукты
-          </h2>
+            <p className="mb-8 uppercase tracking-[0.3em] text-zinc-500">
+              Обо мне
+            </p>
 
-          <div className="mt-24 w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+            <h2 className="text-5xl font-black leading-[1.1] tracking-tight md:text-7xl">
+              Создаю современные
+              <br />
+              AI-продукты
+            </h2>
+
+          </motion.div>
+
+          <div className="mt-24 grid w-full grid-cols-1 gap-8 md:grid-cols-2">
 
             <motion.div
               whileHover={{ y: -10 }}
-              className="rounded-3xl border border-white/10 bg-white/[0.03] p-12 text-center hover:bg-white/[0.05] transition"
+              className="rounded-3xl border border-white/10 bg-white/[0.03] p-12 text-center backdrop-blur-xl transition hover:bg-white/[0.05]"
             >
-              <h3 className="text-4xl font-bold mb-8">
+              <h3 className="mb-8 text-4xl font-bold">
                 Кто я
               </h3>
 
-              <p className="text-zinc-400 text-lg leading-8">
+              <p className="text-lg leading-8 text-zinc-400">
                 Я занимаюсь разработкой AI-сервисов,
-                web-приложений, автоматизацией
-                бизнес-процессов и созданием
-                современных digital-продуктов.
+                web-приложений, автоматизацией бизнес-процессов
+                и созданием современных digital-продуктов.
               </p>
             </motion.div>
 
             <motion.div
               whileHover={{ y: -10 }}
-              className="rounded-3xl border border-white/10 bg-white/[0.03] p-12 text-center hover:bg-white/[0.05] transition"
+              className="rounded-3xl border border-white/10 bg-white/[0.03] p-12 text-center backdrop-blur-xl transition hover:bg-white/[0.05]"
             >
-              <h3 className="text-4xl font-bold mb-8">
+              <h3 className="mb-8 text-4xl font-bold">
                 Технологии
               </h3>
 
@@ -191,12 +202,14 @@ export default function Home() {
                   "React",
                   "TypeScript",
                   "Tailwind",
+                  "Framer Motion",
                   "OpenAI API",
                   "Node.js",
+                  "GitHub",
                 ].map((tech) => (
                   <div
                     key={tech}
-                    className="px-5 py-3 rounded-2xl border border-white/10 bg-white/5 text-lg"
+                    className="rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-lg"
                   >
                     {tech}
                   </div>
@@ -213,57 +226,52 @@ export default function Home() {
       {/* PROJECTS */}
       <section
         id="projects"
-        className="py-36 border-t border-white/5 flex justify-center"
+        className="flex justify-center border-t border-white/5 py-36"
       >
-        <div className="w-full max-w-6xl px-6 flex flex-col items-center text-center">
+        <div className="flex w-full max-w-6xl flex-col items-center px-6 text-center">
 
-          <p className="uppercase tracking-[0.3em] text-zinc-500 mb-8">
+          <p className="mb-8 uppercase tracking-[0.3em] text-zinc-500">
             Проекты
           </p>
 
-          <h2 className="text-5xl md:text-7xl font-black tracking-tight">
+          <h2 className="text-5xl font-black tracking-tight md:text-7xl">
             Избранные работы
           </h2>
 
-          <div className="mt-24 w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="mt-24 grid w-full grid-cols-1 gap-8 md:grid-cols-2">
 
-            <motion.div
-              whileHover={{ y: -12, scale: 1.02 }}
-              transition={{ duration: 0.25 }}
-              className="rounded-3xl border border-white/10 bg-white/[0.03] p-12 min-h-[460px] flex flex-col justify-end text-center hover:bg-white/[0.05] transition"
-            >
-              <h3 className="text-5xl font-bold mb-6">
-                AI Assistant
-              </h3>
+            {[
+              {
+                title: "AI Assistant",
+                text: "AI-ассистент для автоматизации задач, генерации контента и работы с клиентами.",
+              },
+              {
+                title: "Telegram Automation",
+                text: "Telegram-боты, AI-интеграции и автоматизация бизнес-процессов.",
+              },
+            ].map((project) => (
+              <motion.div
+                key={project.title}
+                whileHover={{ y: -12, scale: 1.02 }}
+                transition={{ duration: 0.25 }}
+                className="flex min-h-[460px] flex-col justify-end rounded-3xl border border-white/10 bg-white/[0.03] p-12 text-center backdrop-blur-xl transition hover:bg-white/[0.05]"
+              >
+                <h3 className="mb-6 text-5xl font-bold">
+                  {project.title}
+                </h3>
 
-              <p className="text-zinc-400 text-lg leading-8 mb-10">
-                AI-ассистент для автоматизации задач,
-                генерации контента и работы с клиентами.
-              </p>
+                <p className="mb-10 text-lg leading-8 text-zinc-400">
+                  {project.text}
+                </p>
 
-              <a href="#" className="text-lg font-semibold">
-                Смотреть проект →
-              </a>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ y: -12, scale: 1.02 }}
-              transition={{ duration: 0.25 }}
-              className="rounded-3xl border border-white/10 bg-white/[0.03] p-12 min-h-[460px] flex flex-col justify-end text-center hover:bg-white/[0.05] transition"
-            >
-              <h3 className="text-5xl font-bold mb-6">
-                Telegram Automation
-              </h3>
-
-              <p className="text-zinc-400 text-lg leading-8 mb-10">
-                Telegram-боты, AI-интеграции
-                и автоматизация бизнес-процессов.
-              </p>
-
-              <a href="#" className="text-lg font-semibold">
-                Смотреть проект →
-              </a>
-            </motion.div>
+                <a
+                  href="#"
+                  className="text-lg font-semibold transition hover:text-zinc-400"
+                >
+                  Смотреть проект →
+                </a>
+              </motion.div>
+            ))}
 
           </div>
 
@@ -273,24 +281,23 @@ export default function Home() {
       {/* CONTACT */}
       <section
         id="contact"
-        className="py-36 border-t border-white/5 flex justify-center"
+        className="flex justify-center border-t border-white/5 py-36"
       >
-        <div className="w-full max-w-4xl px-6 flex flex-col items-center text-center">
+        <div className="flex w-full max-w-4xl flex-col items-center px-6 text-center">
 
-          <p className="uppercase tracking-[0.3em] text-zinc-500 mb-8">
+          <p className="mb-8 uppercase tracking-[0.3em] text-zinc-500">
             Контакты
           </p>
 
-          <h2 className="text-5xl md:text-7xl font-black leading-[1.1]">
+          <h2 className="text-5xl font-black leading-[1.1] md:text-7xl">
             Давайте создадим
             <br />
             что-то великое
           </h2>
 
-          <p className="mt-12 text-zinc-400 text-xl leading-9">
+          <p className="mt-12 text-xl leading-9 text-zinc-400">
             Открыт для сотрудничества,
-            AI-проектов и современных
-            digital-решений.
+            AI-проектов и современных digital-решений.
           </p>
 
           <div className="mt-16 flex flex-wrap justify-center gap-10 text-2xl font-semibold">
@@ -298,7 +305,7 @@ export default function Home() {
             <a
               href="https://t.me/ericilyano"
               target="_blank"
-              className="hover:text-zinc-400 transition"
+              className="transition hover:text-zinc-400"
             >
               Telegram
             </a>
@@ -306,14 +313,14 @@ export default function Home() {
             <a
               href="https://github.com/errorkorolevsky"
               target="_blank"
-              className="hover:text-zinc-400 transition"
+              className="transition hover:text-zinc-400"
             >
               GitHub
             </a>
 
             <a
               href="mailto:artemfi435@gmail.com"
-              className="hover:text-zinc-400 transition"
+              className="transition hover:text-zinc-400"
             >
               Email
             </a>
