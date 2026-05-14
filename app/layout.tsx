@@ -2,7 +2,7 @@ import "./globals.css";
 
 export const metadata = {
   title: "Эрик.dev",
-  description: "AI Automation Studio",
+  description: "AI Developer Portfolio",
 };
 
 export default function RootLayout({
