@@ -1,18 +1,28 @@
+import type { Metadata } from "next";
 import "./globals.css";
 
-export const metadata = {
-  title: "Эрик.dev",
-  description: "AI Developer Portfolio",
+export const metadata: Metadata = {
+  title: "Эрик.dev — AI Developer",
+  description:
+    "AI systems, automation platforms, Telegram ecosystems и современные digital-продукты.",
+
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="ru">
-      <body>{children}</body>
+
+      <body suppressHydrationWarning={true}>
+        {children}
+      </body>
+
     </html>
   );
 }
